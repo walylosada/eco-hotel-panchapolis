@@ -38,6 +38,9 @@
 .assistant__send { width: 46px; height: 46px; border-radius: 50%; background: var(--ink); color: var(--white); font-size: 1.1rem; }
 .assistant__send:hover { background: var(--cobalt); }
 .assistant__privacy { padding: 0.2rem 1.2rem 0.9rem; font-size: 0.7rem; line-height: 1.45; color: var(--stone-ink); }
+/* Insignia del hosting: el panel no queda debajo */
+.has-host-badge .assistant { bottom: calc(max(1.25rem, env(safe-area-inset-bottom)) + var(--host-badge)); height: min(640px, calc(100vh - 2.5rem - var(--host-badge))); }
 @media (max-width: 759px) {
+  .has-host-badge .assistant { bottom: 0; height: 100dvh; padding-bottom: calc(env(safe-area-inset-bottom) + var(--host-badge)); }
   .assistant { inset: 0; width: 100%; height: 100%; height: 100dvh; border: 0; border-radius: 0; padding-bottom: env(safe-area-inset-bottom); }
 }

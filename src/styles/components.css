@@ -158,3 +158,11 @@
 
 /* Botones magnéticos (solo escritorio; los mueve motion.js con transform) */
 [data-magnetic] { will-change: transform; }
+
+/* ── Convivencia con la insignia del hosting (esquina inferior derecha) ── */
+.has-host-badge .dock { bottom: calc(max(1.25rem, env(safe-area-inset-bottom)) + var(--host-badge)); }
+@media (max-width: 959px) {
+  :root.has-host-badge { --dock-h: calc(60px + env(safe-area-inset-bottom) + var(--host-badge)); }
+  .has-host-badge .dock { bottom: var(--host-badge); height: calc(60px + env(safe-area-inset-bottom)); }
+  .has-host-badge .mobile-menu { padding-bottom: calc(2rem + env(safe-area-inset-bottom) + var(--host-badge)); }
+}

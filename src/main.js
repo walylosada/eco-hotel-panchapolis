@@ -155,7 +155,7 @@ function initDock() {
       else blocking.delete(e.target);
     });
     update();
-  }, { rootMargin: `-${Math.max(0, window.innerHeight - 130)}px 0px 0px 0px` });
+  }, { rootMargin: `-${Math.max(0, window.innerHeight - (parseFloat(getComputedStyle(dock).bottom) || 0) - dock.offsetHeight - 24)}px 0px 0px 0px` });
   let bio = band();
   const watch = () => $$('main .btn, main .link-arrow, main .g__btn, main .vx__arrow, main .journey__arrow, .footer a').forEach((el) => bio.observe(el));
   watch();
@@ -245,6 +245,27 @@ function idle(fn, timeout = 2000) {
   else setTimeout(fn, 300);
 }
 
+/* ── Insignias del hosting (p. ej. "Powered by Netlify" en el plan gratuito):
+   se detectan y los elementos fijos dejan libre su esquina ── */
+function initHostBadge() {
+  const apply = (f) => {
+    const h = Math.ceil(f.getBoundingClientRect().height || f.offsetHeight || 0);
+    if (!h) return;
+    root.style.setProperty('--host-badge', h + 'px');
+    root.classList.add('has-host-badge');
+    window.dispatchEvent(new Event('resize')); // recalcula la zona que vigila el botón flotante
+  };
+  const find = () => document.getElementById('nl-badge-frame');
+  const existing = find();
+  if (existing) return apply(existing);
+  const mo = new MutationObserver(() => {
+    const f = find();
+    if (f) { mo.disconnect(); requestAnimationFrame(() => apply(f)); }
+  });
+  mo.observe(document.body, { childList: true });
+  setTimeout(() => mo.disconnect(), 15000);
+}
+
 function initMisc() {
   $$('[data-year]').forEach((el) => (el.textContent = new Date().getFullYear()));
   mqReduced.addEventListener('change', (e) => root.classList.toggle('reduced-motion', e.matches));
@@ -259,4 +280,5 @@ initAssistantTrigger();
 initGallery();
 initHeroVideo();
 initMisc();
+initHostBadge();
 initMotion();
