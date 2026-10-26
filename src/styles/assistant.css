@@ -1,0 +1,43 @@
+.assistant {
+  position: fixed; z-index: 95; right: max(1.25rem, env(safe-area-inset-right)); bottom: max(1.25rem, env(safe-area-inset-bottom));
+  display: grid; grid-template-rows: auto 1fr auto auto auto; width: min(400px, calc(100vw - 2.5rem)); height: min(640px, calc(100vh - 2.5rem));
+  background: var(--white); color: var(--ink); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: 0 30px 80px -30px rgba(13, 37, 80, 0.45); overflow: hidden;
+}
+.js:not(.reduced-motion) .assistant:not([hidden]) { animation: asst-in var(--dur-m) var(--ease) both; }
+@keyframes asst-in { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+.assistant__head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding: 1.2rem 1.2rem 1rem 1.4rem; background: var(--ink); color: var(--white); }
+.assistant__title { font-family: var(--f-display); font-size: 1.5rem; font-weight: 400; line-height: 1.1; }
+.assistant__sub { margin-top: 0.3rem; font-size: 0.74rem; line-height: 1.4; color: rgba(252, 251, 248, 0.75); }
+.assistant__close { display: grid; place-items: center; width: 44px; height: 44px; margin: -0.5rem -0.4rem 0 0; border-radius: 50%; }
+.assistant__close:hover { background: rgba(255, 255, 255, 0.12); }
+.assistant__log { overflow-y: auto; padding: 1.2rem 1.2rem 0.6rem; display: flex; flex-direction: column; gap: 0.8rem; overscroll-behavior: contain; }
+.msg { max-width: 92%; font-size: 0.92rem; line-height: 1.5; }
+.msg p { padding: 0.75rem 0.95rem; background: var(--ivory); border-radius: 2px 14px 14px 14px; white-space: pre-line; }
+.msg--user { align-self: flex-end; }
+.msg--user p { background: var(--cobalt); color: var(--white); border-radius: 14px 2px 14px 14px; }
+.msg__actions { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.55rem; }
+.msg__btn, .chip {
+  display: inline-flex; align-items: center; min-height: 40px; padding: 0.45rem 0.9rem; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--white); color: var(--ink); font-size: 0.8rem; font-weight: 500; text-decoration: none; line-height: 1.2;
+  transition: background-color var(--dur-s) var(--ease), border-color var(--dur-s) var(--ease), color var(--dur-s) var(--ease);
+}
+.msg__btn:hover:not(:disabled), .chip:hover { border-color: var(--ink); }
+.msg__btn:disabled { opacity: 0.45; cursor: default; }
+.msg__btn--wa { background: var(--ink); color: var(--white); border-color: var(--ink); }
+.msg__btn--wa:hover { background: var(--cobalt) !important; border-color: var(--cobalt) !important; }
+.msg__free { display: flex; gap: 0.45rem; width: 100%; }
+.msg__free input { flex: 1; min-width: 0; min-height: 40px; padding: 0 0.8rem; border: 1px solid var(--line); border-radius: 999px; font: inherit; font-size: 0.85rem; background: var(--white); color: var(--ink); }
+.msg__preview { margin: 0.55rem 0 0; padding: 0.8rem 0.9rem; border-left: 2px solid var(--cobalt); background: var(--ivory); font-family: var(--f-sans); font-size: 0.8rem; line-height: 1.5; white-space: pre-wrap; }
+.assistant__quick { display: flex; gap: 0.45rem; overflow-x: auto; padding: 0.6rem 1.2rem; border-top: 1px solid var(--line); scrollbar-width: none; }
+.assistant__quick::-webkit-scrollbar { display: none; }
+.chip { flex: none; }
+.assistant__form { display: flex; gap: 0.5rem; padding: 0.7rem 1.2rem 0.4rem; }
+.assistant__form input { flex: 1; min-width: 0; min-height: 46px; padding: 0 1rem; border: 1px solid var(--line); border-radius: 999px; background: var(--ivory); color: var(--ink); font: inherit; font-size: 16px; }
+.assistant__form input:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 1px; }
+.assistant__send { width: 46px; height: 46px; border-radius: 50%; background: var(--ink); color: var(--white); font-size: 1.1rem; }
+.assistant__send:hover { background: var(--cobalt); }
+.assistant__privacy { padding: 0.2rem 1.2rem 0.9rem; font-size: 0.7rem; line-height: 1.45; color: var(--stone-ink); }
+@media (max-width: 759px) {
+  .assistant { inset: 0; width: 100%; height: 100%; height: 100dvh; border: 0; border-radius: 0; padding-bottom: env(safe-area-inset-bottom); }
+}

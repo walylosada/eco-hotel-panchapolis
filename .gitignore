@@ -1,0 +1,5 @@
+node_modules/
+dist/
+vista-previa/
+.DS_Store
+*.log

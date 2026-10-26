@@ -1,0 +1,227 @@
+{
+  "casa-principal-piscina": {
+    "width": 1373,
+    "height": 1641,
+    "widths": [
+      480,
+      640,
+      800,
+      1200,
+      1373
+    ],
+    "color": "rgb(248,248,248)"
+  },
+  "equipo": {
+    "width": 1116,
+    "height": 1263,
+    "widths": [
+      480,
+      640,
+      800,
+      1116
+    ],
+    "color": "rgb(56,56,40)"
+  },
+  "fachada-noche": {
+    "width": 1247,
+    "height": 1434,
+    "widths": [
+      480,
+      640,
+      800,
+      1200,
+      1247
+    ],
+    "color": "rgb(8,40,88)"
+  },
+  "pareja-mascotas": {
+    "width": 1364,
+    "height": 1412,
+    "widths": [
+      480,
+      640,
+      800,
+      1200,
+      1364
+    ],
+    "color": "rgb(232,248,248)"
+  },
+  "pasadia-cascada": {
+    "width": 932,
+    "height": 1487,
+    "widths": [
+      480,
+      640,
+      800,
+      932
+    ],
+    "color": "rgb(168,232,232)"
+  },
+  "pasillo-pergola": {
+    "width": 1314,
+    "height": 1695,
+    "widths": [
+      480,
+      640,
+      800,
+      1200,
+      1314
+    ],
+    "color": "rgb(248,248,248)"
+  },
+  "villa-creta": {
+    "width": 1314,
+    "height": 1622,
+    "widths": [
+      480,
+      640,
+      800,
+      1200,
+      1314
+    ],
+    "color": "rgb(248,248,248)"
+  },
+  "villa-fira": {
+    "width": 1299,
+    "height": 1651,
+    "widths": [
+      480,
+      640,
+      800,
+      1200,
+      1299
+    ],
+    "color": "rgb(168,168,168)"
+  },
+  "villa-kamari": {
+    "width": 1299,
+    "height": 1651,
+    "widths": [
+      480,
+      640,
+      800,
+      1200,
+      1299
+    ],
+    "color": "rgb(200,216,216)"
+  },
+  "villa-kea": {
+    "width": 1301,
+    "height": 1626,
+    "widths": [
+      480,
+      640,
+      800,
+      1200,
+      1301
+    ],
+    "color": "rgb(104,104,104)"
+  },
+  "villa-mikonos": {
+    "width": 1375,
+    "height": 1309,
+    "widths": [
+      480,
+      640,
+      800,
+      1200,
+      1375
+    ],
+    "color": "rgb(216,216,216)"
+  },
+  "villa-milo": {
+    "width": 1319,
+    "height": 1638,
+    "widths": [
+      480,
+      640,
+      800,
+      1200,
+      1319
+    ],
+    "color": "rgb(136,120,104)"
+  },
+  "villa-oia": {
+    "width": 1301,
+    "height": 1629,
+    "widths": [
+      480,
+      640,
+      800,
+      1200,
+      1301
+    ],
+    "color": "rgb(216,216,216)"
+  },
+  "villa-perissa": {
+    "width": 1334,
+    "height": 1590,
+    "widths": [
+      480,
+      640,
+      800,
+      1200,
+      1334
+    ],
+    "color": "rgb(120,168,232)"
+  },
+  "villa-santorini": {
+    "width": 1299,
+    "height": 1644,
+    "widths": [
+      480,
+      640,
+      800,
+      1200,
+      1299
+    ],
+    "color": "rgb(168,168,152)"
+  },
+  "villa-tera": {
+    "width": 1182,
+    "height": 1651,
+    "widths": [
+      480,
+      640,
+      800,
+      1182
+    ],
+    "color": "rgb(216,216,200)"
+  },
+  "piscina-dia": {
+    "width": 1373,
+    "height": 820,
+    "widths": [
+      480,
+      640,
+      800,
+      1200,
+      1373
+    ],
+    "color": "rgb(248,248,248)"
+  },
+  "piscina-noche": {
+    "width": 1247,
+    "height": 688,
+    "widths": [
+      480,
+      640,
+      800,
+      1200,
+      1247
+    ],
+    "color": "rgb(8,40,88)"
+  },
+  "fachada-dia-detalle": {
+    "width": 1373,
+    "height": 1017,
+    "widths": [
+      480,
+      640,
+      800,
+      1200,
+      1373
+    ],
+    "color": "rgb(248,248,248)"
+  }
+}

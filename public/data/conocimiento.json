@@ -1,0 +1,112 @@
+{
+  "_leeme": "Base de conocimiento del asistente virtual. Edita solo con información VERIFICADA por el hotel. Fuente actual: Portafolio de servicios 2025 y Linktree oficial (linktr.ee/panchapolis_rivera). No incluir tarifas, disponibilidad, descuentos, pagos ni políticas sin confirmación escrita del hotel. Las palabras clave se comparan sin tildes y por inicio de palabra.",
+  "version": "2026-10-25",
+  "saludo": "Hola, soy el asistente virtual de Eco Hotel Panchápolis Rivera. Respondo con la información publicada por el hotel. Para tarifas y disponibilidad te conecto con el equipo por WhatsApp.",
+  "respuestasRapidas": [
+    { "texto": "Piscinas", "tema": "piscinas" },
+    { "texto": "Habitaciones", "tema": "habitaciones" },
+    { "texto": "Mascotas", "tema": "mascotas" },
+    { "texto": "Ubicación", "tema": "ubicacion" },
+    { "texto": "Consultar disponibilidad", "accion": "planificar" }
+  ],
+  "derivar": {
+    "_nota": "Si la pregunta contiene alguna de estas palabras, el asistente NO responde: ofrece WhatsApp con un humano.",
+    "palabras": ["precio", "tarifa", "costo", "cuesta", "cuanto", "valor", "vale ", "disponib", "cupo", "descuento", "promo", "oferta", "pago", "pagar", "tarjeta", "transferencia", "anticipo", "abono", "consignac", "cancel", "reembols", "politica", "desayuno", "wifi", "wi fi", "internet", "todo incluido", "incluye", "plan de pareja", "decoracion"],
+    "respuesta": "Ese dato lo confirma directamente el equipo del hotel, para darte información exacta y actualizada. ¿Te paso con ellos por WhatsApp?"
+  },
+  "reservar": {
+    "palabras": ["reserv", "apartar", "separar", "hospedarme", "alojarme", "quiero ir", "fecha"],
+    "respuesta": "Desde este sitio no se hacen reservas ni se muestra disponibilidad. Te ayudo a armar tu consulta en tres preguntas y la envías por WhatsApp al equipo del hotel."
+  },
+  "temas": [
+    {
+      "id": "piscinas",
+      "palabras": ["piscin", "nadar", "cascada", "jacuzzi", "agua", "banarse", "banar"],
+      "respuesta": "Hay piscina de agua natural con cascada, piscina de agua tratada y jacuzzis. Según el portafolio del hotel, la piscina de agua natural y los jacuzzis abren de 9:00 a. m. a 10:00 p. m., y la de agua tratada de 9:00 a. m. a 9:00 p. m. Villa Perissa y Villa Creta tienen piscina privada.",
+      "enlace": { "texto": "Ver las piscinas", "href": "#piscinas" }
+    },
+    {
+      "id": "habitaciones",
+      "palabras": ["habitac", "villa", "cuarto", "suite", "alojamiento", "hospedaje", "cama", "dormir", "capacidad", "personas", "santorini", "milo", "tera", "oia", "kea", "mikonos", "kamari", "fira", "perissa", "creta"],
+      "respuesta": "Hay 10 villas con nombre de isla griega. En la casa principal: Santorini y Milo (1.er piso, de 2 a 4 personas), Tera y Kea (2.º piso, para parejas), Oia (2.º piso, de 2 a 4 personas) y Mikonos, la suite presidencial (3.er piso, para parejas). Además, las villas Kamarí (4 a 6 personas), Fira (hasta 6), Perissa (grupos desde 6) y Creta (600 m² en dos niveles).",
+      "enlace": { "texto": "Ver las villas", "href": "#villas" },
+      "sugerirPlan": true
+    },
+    {
+      "id": "mascotas",
+      "palabras": ["mascot", "perro", "perrito", "gato", "pet", "animal", "peludo"],
+      "respuesta": "Sí, Panchápolis es pet friendly. Las condiciones de ingreso para mascotas se confirman con el equipo por WhatsApp antes del viaje.",
+      "whatsapp": "Hola, quisiera conocer las condiciones de ingreso para mascotas en Eco Hotel Panchápolis Rivera."
+    },
+    {
+      "id": "ubicacion",
+      "palabras": ["ubicac", "donde", "direcc", "llegar", "mapa", "como llego", "rivera", "neiva", "termopilas", "ruta", "queda"],
+      "respuesta": "Estamos en la vereda Termopilas, Rivera, Huila, Colombia. Puedes abrir la ubicación oficial en Google Maps o pedir indicaciones al equipo por WhatsApp.",
+      "enlaceExterno": { "texto": "Abrir en Google Maps", "href": "https://maps.app.goo.gl/5xvBDNFFsSbcTSGV6" }
+    },
+    {
+      "id": "checkin",
+      "palabras": ["check", "entrada", "salida", "hora de llegada", "hora de salida", "ingreso"],
+      "respuesta": "Según el portafolio del hotel, el check-in es a las 3:00 p. m. y el check-out a la 1:00 p. m."
+    },
+    {
+      "id": "pasadia",
+      "palabras": ["pasadia", "pasa dia", "dia de sol", "solo el dia", "sin hospedaje", "visita"],
+      "respuesta": "La experiencia pasadía va de 10:00 a. m. a 5:00 p. m., con acceso a zonas sociales como la piscina de agua natural con cascada, la piscina de agua tratada, zonas verdes, microfútbol y vóley playa. No se permite el ingreso de alimentos ni bebidas. Para tarifas y cupos, escríbele al equipo.",
+      "whatsapp": "Hola, quisiera información sobre la experiencia pasadía en Eco Hotel Panchápolis Rivera."
+    },
+    {
+      "id": "restaurante",
+      "palabras": ["restaur", "comida", "comer", "almuerzo", "cena", "carta", "menu", "bar"],
+      "respuesta": "El hotel tiene restaurante a la carta y minibar. La carta y sus horarios te los comparte el equipo por WhatsApp.",
+      "whatsapp": "Hola, quisiera conocer la carta y los horarios del restaurante de Eco Hotel Panchápolis Rivera."
+    },
+    {
+      "id": "spa",
+      "palabras": ["spa", "masaje", "relaj", "bienestar", "tratamiento"],
+      "respuesta": "El hotel ofrece planes de spa. Los detalles (qué incluyen y cómo reservarlos) te los da el equipo por WhatsApp.",
+      "whatsapp": "Hola, quisiera conocer los planes de spa de Eco Hotel Panchápolis Rivera."
+    },
+    {
+      "id": "zonas",
+      "palabras": ["zona", "social", "actividad", "hacer", "ninos", "nino", "infantil", "parque", "futbol", "microfutbol", "voley", "capilla", "bbq", "asado", "fogata", "lago", "pato", "espejo"],
+      "respuesta": "Zonas sociales publicadas por el hotel: piscinas, espejos de agua natural, zonas verdes, parque infantil, microfútbol, vóley playa, capilla privada, zona BBQ, fogata, parqueaderos y un hangar para eventos sociales."
+    },
+    {
+      "id": "eventos",
+      "palabras": ["evento", "celebra", "cumplea", "boda", "matrimonio", "aniversario", "grupo", "empresa", "hangar"],
+      "respuesta": "Para eventos sociales hay un hangar. En el portafolio, Villa Creta y Villa Kamarí aparecen como ideales para celebraciones privadas. Para cotizar un evento, escríbele al equipo.",
+      "whatsapp": "Hola, quisiera información para un evento o celebración en Eco Hotel Panchápolis Rivera."
+    },
+    {
+      "id": "eco",
+      "palabras": ["eco", "ecolog", "solar", "energia", "naturaleza", "sostenib"],
+      "respuesta": "Panchápolis se presenta como un eco hotel inmerso en la naturaleza e inspirado en Santorini. Cuenta con energía solar."
+    },
+    {
+      "id": "parqueadero",
+      "palabras": ["parque", "parqueadero", "carro", "moto", "vehiculo", "estacionamiento"],
+      "respuesta": "Sí, el hotel cuenta con parqueaderos."
+    },
+    {
+      "id": "santorini",
+      "palabras": ["griego", "grecia", "estilo", "inspira", "quienes", "historia", "familia"],
+      "respuesta": "Panchápolis nació de una familia huilense cautivada por las islas griegas: un oasis de paz donde la tradición local se encuentra con la arquitectura mediterránea, con muros blancos, cúpulas y carpinterías azules."
+    },
+    {
+      "id": "contacto",
+      "palabras": ["contact", "telefono", "celular", "numero", "whatsapp", "instagram", "facebook", "tiktok", "redes", "llamar"],
+      "respuesta": "Canales oficiales: WhatsApp +57 300 364 6781, Instagram @panchapolis_rivera, Facebook y TikTok. Todos los enlaces están en el Linktree del hotel.",
+      "enlaceExterno": { "texto": "Abrir Linktree", "href": "https://linktr.ee/panchapolis_rivera" }
+    }
+  ],
+  "noEncontrado": "No tengo ese dato confirmado. Para no darte información incorrecta, te paso con el equipo del hotel por WhatsApp.",
+  "planificar": {
+    "intro": "Armemos tu consulta. Son tres preguntas rápidas y al final tú decides si la envías por WhatsApp.",
+    "plan": { "pregunta": "¿Qué te interesa?", "opciones": ["Hospedaje", "Pasadía", "Aún no lo sé"] },
+    "fechas": { "pregunta": "¿Para qué fechas, aproximadamente?", "opciones": ["Este fin de semana", "Próximas semanas", "En unos meses"], "placeholder": "O escribe tus fechas, p. ej. 14 al 16 de diciembre" },
+    "personas": { "pregunta": "¿Cuántas personas viajan?", "opciones": ["1 a 2", "3 a 4", "5 a 6", "7 o más"] },
+    "mascota": { "pregunta": "¿Viajan con mascota?", "opciones": ["Sí", "No"] },
+    "cierre": "Listo. Este es el mensaje que se enviará por WhatsApp. No hay reserva ni disponibilidad confirmada hasta que el hotel te responda."
+  }
+}

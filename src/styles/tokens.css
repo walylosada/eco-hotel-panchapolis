@@ -1,0 +1,44 @@
+/* ── Fuentes propias con fallback métrico (minimiza CLS) ── */
+@font-face { font-family: 'Cormorant'; src: url('/fonts/cormorant-300-normal.woff2') format('woff2'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Cormorant'; src: url('/fonts/cormorant-300-italic.woff2') format('woff2'); font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Cormorant'; src: url('/fonts/cormorant-400-normal.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url('/fonts/manrope-var.woff2') format('woff2'); font-weight: 200 800; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Cormorant Fallback'; src: local('Georgia'), local('Times New Roman'); size-adjust: 86%; ascent-override: 92%; descent-override: 28%; }
+@font-face { font-family: 'Manrope Fallback'; src: local('Arial'), local('Helvetica'); size-adjust: 104%; ascent-override: 98%; descent-override: 27%; }
+
+:root {
+  /* Paleta "lujo silencioso": el color lo ponen las fotos */
+  --white: #fcfbf8;        /* blanco mediterráneo */
+  --ivory: #f6f2ea;        /* marfil cálido */
+  --sand: #e8decd;         /* arena */
+  --stone: #8f877b;        /* piedra (solo texto grande / decorativo) */
+  --stone-ink: #5f584e;    /* piedra legible sobre marfil (≥ 6:1) */
+  --ink: #15202d;          /* tinta azul noche para texto */
+  --cobalt: #1d4a9a;       /* acento cobalto */
+  --cobalt-deep: #0d2550;  /* azul profundo */
+  --green: #2e5a44;        /* verde tropical */
+  --line: rgba(21, 32, 45, 0.14);
+  --line-light: rgba(252, 251, 248, 0.28);
+
+  --f-display: 'Cormorant', 'Cormorant Fallback', Georgia, serif;
+  --f-sans: 'Manrope', 'Manrope Fallback', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+
+  /* Lenguaje de movimiento: una curva, tres duraciones */
+  --ease: cubic-bezier(0.45, 0.05, 0.1, 1);
+  --dur-s: 0.5s;
+  --dur-m: 0.9s;
+  --dur-l: 1.6s;
+
+  --gutter: clamp(1rem, 4.5vw, 4.5rem);
+  --maxw: 1440px;
+  --header-h: 76px;
+  --radius: 2px;
+  --dock-h: 0px;
+
+  --t-display-xl: clamp(2.6rem, 7.4vw, 7.6rem);
+  --t-display: clamp(2.5rem, 5.6vw, 5.6rem);
+  --t-h3: clamp(1.5rem, 2.2vw, 2rem);
+  --t-lead: clamp(1.18rem, 1.6vw, 1.5rem);
+  --t-body: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  --t-label: 0.72rem;
+}
