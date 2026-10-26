@@ -47,3 +47,11 @@ Fuentes usadas: Portafolio de servicios 2025 (PDF del hotel) y Linktree oficial 
 
 - Datos estructurados `Hotel`: solo incluyen nombre, dirección (vereda, municipio, departamento, país), teléfono verificado, horarios de check-in/out, `petsAllowed`, servicios del portafolio y redes. Sin coordenadas, sin calificaciones ni rango de precios.
 - Configurar Google Search Console y la ficha de Google Business con el dominio definitivo.
+
+## Rediseño (octubre de 2026)
+
+- **Características por villa.** El explorador muestra, por villa, capacidad y entre 3 y 5 características tomadas del portafolio 2025 (camas, piscina o jacuzzi privados, aire acondicionado, Smart TV, cocina, etc.). Siguen sin publicarse tarifas, desayuno ni Wi-Fi. Confirmar que el equipamiento está vigente.
+- **Villa Kea:** el portafolio cobra "X2 personas + X1 adicional"; el sitio dice "Pareja · consulta por persona adicional".
+- **Villa Fira:** el portafolio da tarifas para 4 y 6 personas y dice "capacidad para 6"; el sitio dice "Hasta 6 personas".
+- **Recorrido 2.5D:** usa seis fotos reales en una secuencia ilustrativa; el sitio aclara que no representa la distribución real de los espacios. Para un recorrido fiel harían falta un plano del hotel o tomas de dron (ver ASSETS_NECESARIOS.md).
+- **Spa, restaurante y fogata:** se presentan con iconos y sin fotografía porque no hay fotos reales de esos espacios.

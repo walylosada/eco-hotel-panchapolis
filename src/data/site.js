@@ -48,6 +48,7 @@ export function waLink(message = SITE.whatsapp.defaultMessage) {
 // despliega la función serverless documentada en docs/ASISTENTE_IA.md y pon aquí su URL
 // (p. ej. '/api/asistente'). Nunca pongas claves de API en el frontend.
 export const ASSISTANT = {
-  knowledgeUrl: BASE + 'data/conocimiento.json',
+  // VITE_KB_URL solo se usa en la vista previa autocontenida (JSON incrustado)
+  knowledgeUrl: (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_KB_URL) || BASE + 'data/conocimiento.json',
   endpoint: null,
 };

@@ -1,5 +1,8 @@
 import './styles/main.css';
 import { SITE } from './data/site.js';
+import { initVillas as initVillaExplorer } from './modules/villas.js';
+import { initPools } from './modules/pools.js';
+import { initExperiences } from './modules/experiences.js';
 
 const root = document.documentElement;
 const $ = (s, c = document) => c.querySelector(s);
@@ -98,45 +101,39 @@ function initMenu() {
   window.matchMedia('(min-width: 960px)').addEventListener('change', (e) => { if (e.matches && !menu.hidden) close(false); });
 }
 
-/* ── Índice de villas (acordeón accesible + imagen fija en escritorio) ── */
-function initVillas() {
-  const list = $('[data-villas]');
-  if (!list) return;
-  const stage = $('[data-villa-stage]');
-  const setStage = (key) => {
-    if (!stage) return;
-    $$('[data-villa-img]', stage).forEach((p) => p.classList.toggle('is-active', p.dataset.villaImg === key));
+/* ── Escenas interactivas (funcionan sin GSAP) ── */
+function initScenes() {
+  const villas = $('[data-villas]');
+  if (villas) initVillaExplorer(villas);
+  const pools = $('[data-pools]');
+  if (pools) initPools(pools);
+  const exp = $('[data-exp]');
+  if (exp) initExperiences(exp);
+  // Recorrido 2.5D: se descarga al acercarse a la sección
+  const journey = $('[data-journey]');
+  if (journey) {
+    const io = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      io.disconnect();
+      import('./modules/journey.js').then((m) => m.initJourney(journey));
+    }, { rootMargin: '800px 0px' });
+    io.observe(journey);
+  }
+}
+
+/* ── Progreso de lectura: respaldo para navegadores sin scroll-timeline ── */
+function initProgress() {
+  if (CSS.supports('animation-timeline: scroll()')) return;
+  const bar = $('[data-progress]');
+  if (!bar) return;
+  let raf = 0;
+  const update = () => {
+    raf = 0;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.setProperty('--p', max > 0 ? (window.scrollY / max).toFixed(4) : 0);
   };
-  const items = $$('.villa', list);
-  items.forEach((item) => {
-    const btn = $('.villa__btn', item);
-    const panel = $('.villa__panel', item);
-    btn.addEventListener('click', () => {
-      const willOpen = btn.getAttribute('aria-expanded') !== 'true';
-      items.forEach((other) => {
-        if (other === item) return;
-        $('.villa__btn', other).setAttribute('aria-expanded', 'false');
-        $('.villa__panel', other).hidden = true;
-      });
-      btn.setAttribute('aria-expanded', String(willOpen));
-      panel.hidden = !willOpen;
-      if (willOpen) setStage(item.dataset.villa);
-      if (willOpen && !isDesktop()) {
-        // Mantener el título visible en móvil tras abrir
-        requestAnimationFrame(() => {
-          const top = item.getBoundingClientRect().top;
-          if (top < 70) window.scrollBy({ top: top - 80, behavior: prefersReduced() ? 'auto' : 'smooth' });
-        });
-      }
-    });
-    // Vista previa al pasar el cursor (escritorio)
-    btn.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') setStage(item.dataset.villa); });
-    btn.addEventListener('focus', () => setStage(item.dataset.villa));
-  });
-  list.addEventListener('pointerleave', () => {
-    const openItem = items.find((i) => $('.villa__btn', i).getAttribute('aria-expanded') === 'true');
-    if (openItem) setStage(openItem.dataset.villa);
-  });
+  window.addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(update); }, { passive: true });
+  update();
 }
 
 /* ── Dock (único elemento fijo): aparece tras el hero, se oculta en la invitación final ── */
@@ -160,7 +157,7 @@ function initDock() {
     update();
   }, { rootMargin: `-${Math.max(0, window.innerHeight - 130)}px 0px 0px 0px` });
   let bio = band();
-  const watch = () => $$('main .btn, main .link-arrow, main .g__btn, .footer a').forEach((el) => bio.observe(el));
+  const watch = () => $$('main .btn, main .link-arrow, main .g__btn, main .vx__arrow, main .journey__arrow, .footer a').forEach((el) => bio.observe(el));
   watch();
   window.addEventListener('resize', () => { bio.disconnect(); blocking.clear(); bio = band(); watch(); }, { passive: true });
   new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting; update(); }, { threshold: 0.15 }).observe(hero);
@@ -255,7 +252,8 @@ function initMisc() {
 
 initHeader();
 initMenu();
-initVillas();
+initScenes();
+initProgress();
 initDock();
 initAssistantTrigger();
 initGallery();

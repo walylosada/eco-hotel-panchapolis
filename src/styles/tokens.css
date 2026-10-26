@@ -3,25 +3,32 @@
 @font-face { font-family: 'Cormorant'; src: url('/fonts/cormorant-300-italic.woff2') format('woff2'); font-weight: 300; font-style: italic; font-display: swap; }
 @font-face { font-family: 'Cormorant'; src: url('/fonts/cormorant-400-normal.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
 @font-face { font-family: 'Manrope'; src: url('/fonts/manrope-var.woff2') format('woff2'); font-weight: 200 800; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Cormorant Fallback'; src: local('Georgia'), local('Times New Roman'); size-adjust: 86%; ascent-override: 92%; descent-override: 28%; }
-@font-face { font-family: 'Manrope Fallback'; src: local('Arial'), local('Helvetica'); size-adjust: 104%; ascent-override: 98%; descent-override: 27%; }
+/* Respaldos calibrados midiendo el ancho real del titular (Cormorant 300 ≈ 95,8 % de Times/Liberation Serif) */
+@font-face { font-family: 'Cormorant Fallback'; src: local('Times New Roman'), local('TimesNewRomanPSMT'), local('Liberation Serif'); size-adjust: 95.8%; ascent-override: 96%; descent-override: 30%; }
+@font-face { font-family: 'Cormorant Fallback 2'; src: local('Noto Serif'), local('DejaVu Serif'); size-adjust: 74%; ascent-override: 124%; descent-override: 38%; }
+@font-face { font-family: 'Manrope Fallback'; src: local('Arial'), local('ArialMT'), local('Helvetica'), local('Liberation Sans'); size-adjust: 104.2%; ascent-override: 98%; descent-override: 27%; }
+@font-face { font-family: 'Manrope Fallback 2'; src: local('Roboto'), local('Noto Sans'), local('DejaVu Sans'); size-adjust: 92%; ascent-override: 104%; descent-override: 29%; }
 
 :root {
-  /* Paleta "lujo silencioso": el color lo ponen las fotos */
-  --white: #fcfbf8;        /* blanco mediterráneo */
-  --ivory: #f6f2ea;        /* marfil cálido */
-  --sand: #e8decd;         /* arena */
-  --stone: #8f877b;        /* piedra (solo texto grande / decorativo) */
-  --stone-ink: #5f584e;    /* piedra legible sobre marfil (≥ 6:1) */
-  --ink: #15202d;          /* tinta azul noche para texto */
-  --cobalt: #1d4a9a;       /* acento cobalto */
-  --cobalt-deep: #0d2550;  /* azul profundo */
-  --green: #2e5a44;        /* verde tropical */
-  --line: rgba(21, 32, 45, 0.14);
-  --line-light: rgba(252, 251, 248, 0.28);
+  /* MEDITERRANEAN TROPICAL ESCAPE — el color lo ponen las fotografías */
+  --aegean: #104d89;       /* azul Egeo (acento principal) */
+  --turquoise: #27bcc7;    /* turquesa (agua; solo sobre fondos oscuros o detalles) */
+  --ivory: #f8f6f0;        /* blanco marfil */
+  --white: #fdfcf9;        /* blanco cal */
+  --tropic: #274d3b;       /* verde tropical */
+  --gold: #d5a96d;         /* arena dorada (detalles; no para texto sobre claro) */
+  --sand: #ece3d3;         /* arena clara (superficies) */
+  --night: #0b1626;        /* noche (secciones inmersivas) */
+  --stone-ink: #5b554c;    /* texto secundario sobre marfil (≥ 6:1) */
+  --ink: #142030;          /* tinta para texto */
+  --cobalt: var(--aegean);
+  --cobalt-deep: #0a2f57;
+  --green: var(--tropic);
+  --line: rgba(20, 32, 48, 0.14);
+  --line-light: rgba(253, 252, 249, 0.24);
 
-  --f-display: 'Cormorant', 'Cormorant Fallback', Georgia, serif;
-  --f-sans: 'Manrope', 'Manrope Fallback', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --f-display: 'Cormorant', 'Cormorant Fallback', 'Cormorant Fallback 2', serif;
+  --f-sans: 'Manrope', 'Manrope Fallback', 'Manrope Fallback 2', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
 
   /* Lenguaje de movimiento: una curva, tres duraciones */
   --ease: cubic-bezier(0.45, 0.05, 0.1, 1);

@@ -6,7 +6,7 @@
   <title>Eco Hotel Panchápolis Rivera · Hotel con piscinas en Rivera, Huila</title>
   <meta name="description" content="Eco hotel inspirado en Santorini en la vereda Termopilas, Rivera, Huila. Villas entre jardines, piscinas de agua natural y tratada, plan pasadía y espacio pet friendly. Consulta disponibilidad por WhatsApp.">
   <link rel="canonical" href="https://www.panchapolis.com/">
-  <meta name="theme-color" content="#F6F2EA">
+  <meta name="theme-color" content="#F8F6F0">
   <meta name="color-scheme" content="light">
 
   <meta property="og:type" content="website">
@@ -85,7 +85,7 @@
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <!-- Pantalla de carga breve (solo CSS, no bloquea el render) -->
+  <!-- Pantalla de marca breve (CSS puro; solo primera visita de la sesión) -->
   <div class="loader" aria-hidden="true">
     <div class="loader__mark">
       <span class="loader__word">Panchápolis</span>
@@ -95,6 +95,7 @@
   </div>
 
   <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span data-progress></span></div>
 
   <header class="header" data-header>
     <div class="header__inner">
@@ -107,6 +108,7 @@
           <li><a href="#descubre">El hotel</a></li>
           <li><a href="#piscinas">Piscinas</a></li>
           <li><a href="#villas">Villas</a></li>
+          <li><a href="#recorrido">Recorrido</a></li>
           <li><a href="#galeria">Galería</a></li>
           <li><a href="#ubicacion">Ubicación</a></li>
         </ul>
@@ -122,14 +124,18 @@
   </header>
 
   <div class="mobile-menu" id="menu-movil" data-menu hidden>
+    <div class="mobile-menu__media" aria-hidden="true">
+      <pic src="villa-perissa" alt="" sizes="(max-width: 959px) 100vw, 1px" pos="50% 40%"></pic>
+    </div>
     <nav aria-label="Menú móvil">
       <ol class="mobile-menu__list">
         <li><a href="#descubre"><small>01</small>El hotel</a></li>
         <li><a href="#piscinas"><small>02</small>Piscinas</a></li>
         <li><a href="#villas"><small>03</small>Villas</a></li>
-        <li><a href="#compartir"><small>04</small>Para compartir</a></li>
-        <li><a href="#galeria"><small>05</small>Galería</a></li>
-        <li><a href="#ubicacion"><small>06</small>Ubicación</a></li>
+        <li><a href="#recorrido"><small>04</small>Recorrido</a></li>
+        <li><a href="#experiencias"><small>05</small>Experiencias</a></li>
+        <li><a href="#galeria"><small>06</small>Galería</a></li>
+        <li><a href="#ubicacion"><small>07</small>Ubicación</a></li>
       </ol>
     </nav>
     <div class="mobile-menu__foot">
@@ -144,11 +150,13 @@
 
   <main id="contenido">
     <!-- ═════════ HERO ═════════ -->
-    <section class="hero" id="top" aria-labelledby="hero-title">
+    <section class="hero" id="top" aria-labelledby="hero-title" data-atmos="night">
       <div class="hero__media" data-hero-media>
         <div class="hero__parallax" data-hero-parallax>
-          <div class="hero__kb">
-            <pic src="fachada-noche" alt="Casa principal de Panchápolis de noche: muros blancos, barandas azules, palmas y la piscina iluminada" sizes="100vw" priority pos="50% 38%" class="hero__img"></pic>
+          <div class="hero__tilt" data-hero-tilt>
+            <div class="hero__kb">
+              <pic src="fachada-noche" alt="Casa principal de Panchápolis de noche: muros blancos, barandas azules, palmas y la piscina iluminada" sizes="100vw" priority pos="50% 38%" class="hero__img"></pic>
+            </div>
           </div>
         </div>
         <div class="hero__shade" aria-hidden="true"></div>
@@ -157,13 +165,16 @@
       <div class="hero__content wrap">
         <p class="eyebrow hero__eyebrow">Rivera · Huila · Colombia</p>
         <h1 class="hero__title" id="hero-title">
-          <span class="ln"><span>Una escapada diferente,</span></span>
-          <span class="ln"><span>entre el <em>azul</em> del agua</span></span>
-          <span class="ln"><span>y el <em>verde</em> de la naturaleza</span></span>
+          <span class="ln"><span class="w" style="--i:0"><span>Una</span></span> <span class="w" style="--i:1"><span>escapada</span></span> <span class="w" style="--i:2"><span>diferente,</span></span></span>
+          <span class="ln"><span class="w" style="--i:3"><span>entre</span></span> <span class="w" style="--i:4"><span>el</span></span> <span class="w" style="--i:5"><span><em>azul</em></span></span> <span class="w" style="--i:6"><span>del</span></span> <span class="w" style="--i:7"><span>agua</span></span></span>
+          <span class="ln"><span class="w" style="--i:8"><span>y</span></span> <span class="w" style="--i:9"><span>el</span></span> <span class="w" style="--i:10"><span><em class="em-green">verde</em></span></span> <span class="w" style="--i:11"><span>de</span></span> <span class="w" style="--i:12"><span>la</span></span> <span class="w" style="--i:13"><span>naturaleza</span></span></span>
         </h1>
-        <div class="hero__actions">
-          <a class="btn btn--solid btn--light" href="{{wa}}" target="_blank" rel="noopener" data-cta="hero">Consultar disponibilidad</a>
-          <a class="btn btn--ghost btn--light" href="#descubre">Explorar el hotel</a>
+        <div class="hero__foot">
+          <div class="hero__actions">
+            <a class="btn btn--solid btn--light" href="{{wa}}" target="_blank" rel="noopener" data-cta="hero" data-magnetic>Consultar disponibilidad</a>
+            <a class="btn btn--ghost btn--light" href="#descubre">Explorar el hotel</a>
+          </div>
+          <p class="hero__note">Eco hotel inspirado en Santorini, entre palmas, piscinas y jardines del Huila.</p>
         </div>
       </div>
 
@@ -174,41 +185,68 @@
     </section>
 
     <!-- ═════════ A · DESCUBRE ═════════ -->
-    <section class="discover" id="descubre" aria-labelledby="discover-title">
+    <section class="discover" id="descubre" aria-labelledby="discover-title" data-atmos="ivory">
       <div class="wrap discover__grid">
         <header class="discover__head">
           <p class="eyebrow"><span class="idx">01</span>Descubre Panchápolis</p>
-          <h2 class="display" id="discover-title" data-lines>
+          <h2 class="display display--xl" id="discover-title" data-lines>
             <span class="ln"><span>Santorini,</span></span>
             <span class="ln"><span><em>reimaginado</em></span></span>
             <span class="ln"><span>en el Huila</span></span>
           </h2>
         </header>
 
-        <figure class="discover__main" data-reveal>
-          <div class="frame" data-parallax="8">
-            <pic src="pasillo-pergola" alt="Corredor de la casa principal con pérgola azul, puertas azules y buganvilia" sizes="(min-width: 960px) 44vw, 92vw"></pic>
+        <figure class="discover__a" data-reveal data-depth="0.6">
+          <div class="frame">
+            <pic src="pasillo-pergola" alt="Corredor de la casa principal con pérgola azul, puertas azules y buganvilia" sizes="(min-width: 960px) 36vw, 78vw"></pic>
           </div>
-          <figcaption class="caption">Casa principal</figcaption>
+          <figcaption class="caption">Corredor de la casa principal</figcaption>
+        </figure>
+
+        <figure class="discover__b" data-reveal data-depth="1.4">
+          <div class="frame">
+            <pic src="villa-perissa" alt="Villa Perissa: arco cubierto de buganvilia, puerta azul y cúpula bajo el cielo despejado" sizes="(min-width: 960px) 22vw, 56vw"></pic>
+          </div>
+          <figcaption class="caption">Villa Perissa</figcaption>
+        </figure>
+
+        <figure class="discover__c" data-reveal data-depth="0.9">
+          <div class="frame">
+            <pic src="villa-kamari" alt="Villa Kamarí: casa blanca con pérgolas azules entre palmas" sizes="(min-width: 960px) 18vw, 44vw"></pic>
+          </div>
         </figure>
 
         <div class="discover__text">
           <p class="lead" data-fade>Una familia huilense, cautivada por las islas griegas, decidió crear un oasis de paz donde la tradición local se encuentra con la arquitectura mediterránea.</p>
-          <p data-fade>Muros blancos, cúpulas y carpinterías azules entre palmas, jardines y espejos de agua. Un eco hotel inmerso en la naturaleza, que funciona con energía solar y se recorre sin prisa.</p>
-          <svg class="wave wave--inline" viewBox="0 0 240 16" aria-hidden="true" focusable="false"><path d="M0 8 Q 15 0 30 8 T 60 8 T 90 8 T 120 8 T 150 8 T 180 8 T 210 8 T 240 8" /></svg>
+          <p data-fade>Un eco hotel inmerso en la naturaleza, que funciona con energía solar y se recorre sin prisa.</p>
         </div>
 
-        <figure class="discover__aside" data-reveal>
-          <div class="frame" data-parallax="-6">
-            <pic src="villa-perissa" alt="Villa Perissa: arco cubierto de buganvilia, puerta azul y cúpula bajo el cielo despejado" sizes="(min-width: 960px) 26vw, 60vw"></pic>
+        <dl class="duo" data-fade>
+          <div class="duo__item">
+            <dt><span class="duo__mark duo__mark--sea" aria-hidden="true"></span>Lo mediterráneo</dt>
+            <dd>Muros blancos, cúpulas y carpinterías azules, pérgolas y piedra.</dd>
           </div>
-          <figcaption class="caption">Villa Perissa</figcaption>
-        </figure>
+          <div class="duo__item">
+            <dt><span class="duo__mark duo__mark--leaf" aria-hidden="true"></span>Lo tropical</dt>
+            <dd>Palmas, heliconias, helechos, zonas verdes y espejos de agua.</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- Puente: de lo claro a lo inmersivo -->
+      <div class="bridge" data-bridge aria-hidden="true">
+        <div class="bridge__sticky">
+          <div class="bridge__frame" data-bridge-frame>
+            <pic src="casa-principal-piscina" alt="" sizes="100vw" pos="50% 45%"></pic>
+          </div>
+          <p class="bridge__line bridge__line--a" data-bridge-a>Del blanco cicládico</p>
+          <p class="bridge__line bridge__line--b" data-bridge-b>al azul del agua</p>
+        </div>
       </div>
     </section>
 
-    <!-- ═════════ B · PISCINAS (scroll narrativo) ═════════ -->
-    <section class="pools" id="piscinas" aria-labelledby="pools-title" data-pools>
+    <!-- ═════════ B · PISCINAS ═════════ -->
+    <section class="pools" id="piscinas" aria-labelledby="pools-title" data-pools data-atmos="night">
       <div class="wrap pools__intro">
         <p class="eyebrow eyebrow--light"><span class="idx">02</span>El agua como protagonista</p>
         <h2 class="display display--light" id="pools-title" data-lines>
@@ -219,8 +257,8 @@
       </div>
 
       <div class="pools__stage" data-pools-stage>
-        <div class="pools__frames">
-          <figure class="pools__frame" data-pool-frame>
+        <div class="pools__media" data-pools-media>
+          <figure class="pools__frame is-active" data-pool-frame>
             <pic src="piscina-dia" alt="Piscina principal frente a los arcos y las puertas azules de la casa principal" sizes="100vw" pos="50% 40%"></pic>
           </figure>
           <figure class="pools__frame" data-pool-frame>
@@ -229,29 +267,31 @@
           <figure class="pools__frame" data-pool-frame>
             <pic src="piscina-noche" alt="Piscina iluminada de noche junto a la casa principal" sizes="100vw" pos="50% 30%"></pic>
           </figure>
-          <svg class="pools__wave" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true" focusable="false" data-pool-wave>
-            <path d="M0 20 C 120 4 240 4 360 20 S 600 36 720 20 S 960 4 1080 20 S 1320 36 1440 20 S 1680 4 1800 20 S 2040 36 2160 20 S 2400 4 2520 20 S 2760 36 2880 20" />
-          </svg>
+          <div class="pools__atmos" aria-hidden="true"></div>
         </div>
 
-        <ol class="pools__captions">
-          <li class="pools__caption" data-pool-caption>
-            <span class="idx">01 / 03</span>
-            <h3>Frente a la casa principal</h3>
-            <p>La piscina principal se abre ante los arcos blancos y las puertas azules. Desde los balcones del segundo piso se ve el agua.</p>
-          </li>
-          <li class="pools__caption" data-pool-caption>
-            <span class="idx">02 / 03</span>
-            <h3>Agua natural con cascada</h3>
-            <p>Una piscina de agua natural, con cascada de piedra, entre helechos y vegetación tropical. Muy cerca, los espejos de agua.</p>
-          </li>
-          <li class="pools__caption" data-pool-caption>
-            <span class="idx">03 / 03</span>
-            <h3>Cuando cae la noche</h3>
-            <p>La piscina de agua natural y los jacuzzis siguen abiertos hasta las 10:00 p.&nbsp;m. Algunas villas tienen piscina o jacuzzi privados.</p>
-          </li>
-        </ol>
-        <div class="pools__progress" aria-hidden="true"><span data-pool-progress></span></div>
+        <div class="pools__ui wrap">
+          <div class="pools__tabs" role="tablist" aria-label="Ambientes de agua">
+            <button type="button" role="tab" id="pool-tab-0" aria-controls="pool-panel-0" aria-selected="true" class="pools__tab"><span>01</span>Casa principal</button>
+            <button type="button" role="tab" id="pool-tab-1" aria-controls="pool-panel-1" aria-selected="false" tabindex="-1" class="pools__tab"><span>02</span>Agua natural</button>
+            <button type="button" role="tab" id="pool-tab-2" aria-controls="pool-panel-2" aria-selected="false" tabindex="-1" class="pools__tab"><span>03</span>De noche</button>
+          </div>
+          <div class="pools__panels">
+            <div class="pools__panel is-active" role="tabpanel" id="pool-panel-0" aria-labelledby="pool-tab-0" data-pool-panel>
+              <h3>Frente a la casa principal</h3>
+              <p>La piscina principal se abre ante los arcos blancos y las puertas azules. Desde los balcones del segundo piso se ve el agua.</p>
+            </div>
+            <div class="pools__panel" role="tabpanel" id="pool-panel-1" aria-labelledby="pool-tab-1" data-pool-panel>
+              <h3>Agua natural con cascada</h3>
+              <p>Una piscina de agua natural, con cascada de piedra, entre helechos y vegetación tropical. Muy cerca, los espejos de agua.</p>
+            </div>
+            <div class="pools__panel" role="tabpanel" id="pool-panel-2" aria-labelledby="pool-tab-2" data-pool-panel>
+              <h3>Cuando cae la noche</h3>
+              <p>La piscina de agua natural y los jacuzzis siguen abiertos hasta las 10:00 p.&nbsp;m. Villa Perissa y Villa Creta tienen piscina privada.</p>
+            </div>
+          </div>
+          <div class="pools__progress" aria-hidden="true"><span data-pool-progress></span></div>
+        </div>
       </div>
 
       <div class="wrap pools__foot">
@@ -264,8 +304,8 @@
       </div>
     </section>
 
-    <!-- ═════════ C · VILLAS ═════════ -->
-    <section class="villas" id="villas" aria-labelledby="villas-title">
+    <!-- ═════════ C · VILLAS (explorador) ═════════ -->
+    <section class="villas" id="villas" aria-labelledby="villas-title" data-atmos="white">
       <div class="wrap villas__head">
         <p class="eyebrow"><span class="idx">03</span>Espacios para descansar</p>
         <h2 class="display" id="villas-title" data-lines>
@@ -275,246 +315,306 @@
         <p class="villas__intro" data-fade>Algunas son construcciones propias entre jardines; otras ocupan los tres niveles de la casa principal. Elige una y te contamos tarifas y disponibilidad por WhatsApp.</p>
       </div>
 
-      <div class="wrap villas__body">
-        <div class="villas__stage" aria-hidden="true">
-          <div class="villas__stage-frame" data-villa-stage>
-            <pic src="villa-santorini" alt="" sizes="(min-width: 960px) 40vw, 1px" class="is-active" data-villa-img="santorini"></pic>
-            <pic src="villa-milo" alt="" sizes="(min-width: 960px) 40vw, 1px" data-villa-img="milo"></pic>
-            <pic src="villa-tera" alt="" sizes="(min-width: 960px) 40vw, 1px" data-villa-img="tera"></pic>
-            <pic src="villa-oia" alt="" sizes="(min-width: 960px) 40vw, 1px" data-villa-img="oia"></pic>
-            <pic src="villa-kea" alt="" sizes="(min-width: 960px) 40vw, 1px" data-villa-img="kea"></pic>
-            <pic src="villa-mikonos" alt="" sizes="(min-width: 960px) 40vw, 1px" data-villa-img="mikonos"></pic>
-            <pic src="villa-kamari" alt="" sizes="(min-width: 960px) 40vw, 1px" data-villa-img="kamari"></pic>
-            <pic src="villa-fira" alt="" sizes="(min-width: 960px) 40vw, 1px" data-villa-img="fira"></pic>
-            <pic src="villa-perissa" alt="" sizes="(min-width: 960px) 40vw, 1px" data-villa-img="perissa"></pic>
-            <pic src="villa-creta" alt="" sizes="(min-width: 960px) 40vw, 1px" data-villa-img="creta"></pic>
+      <div class="vx" data-villas>
+        <div class="vx__aside">
+        <div class="vx__stage" aria-hidden="true">
+          <div class="vx__stage-frame" data-villa-stage>
+            <pic src="villa-santorini" alt="" sizes="(min-width: 960px) 54vw, 1px" class="is-active" data-villa-img="santorini"></pic>
+            <pic src="villa-milo" alt="" sizes="(min-width: 960px) 54vw, 1px" data-villa-img="milo"></pic>
+            <pic src="villa-tera" alt="" sizes="(min-width: 960px) 54vw, 1px" data-villa-img="tera"></pic>
+            <pic src="villa-oia" alt="" sizes="(min-width: 960px) 54vw, 1px" data-villa-img="oia"></pic>
+            <pic src="villa-kea" alt="" sizes="(min-width: 960px) 54vw, 1px" data-villa-img="kea"></pic>
+            <pic src="villa-mikonos" alt="" sizes="(min-width: 960px) 54vw, 1px" data-villa-img="mikonos"></pic>
+            <pic src="villa-kamari" alt="" sizes="(min-width: 960px) 54vw, 1px" data-villa-img="kamari"></pic>
+            <pic src="villa-fira" alt="" sizes="(min-width: 960px) 54vw, 1px" data-villa-img="fira"></pic>
+            <pic src="villa-perissa" alt="" sizes="(min-width: 960px) 54vw, 1px" data-villa-img="perissa"></pic>
+            <pic src="villa-creta" alt="" sizes="(min-width: 960px) 54vw, 1px" data-villa-img="creta"></pic>
+            <span class="vx__stage-num" data-villa-num>01</span>
           </div>
         </div>
 
-        <ol class="villa-list" data-villas>
-          <li class="villa" data-villa="santorini">
-            <h3 class="villa__title">
-              <button type="button" class="villa__btn" aria-expanded="true" aria-controls="v-santorini" id="vb-santorini">
-                <span class="villa__num">01</span><span class="villa__name">Villa Santorini</span><span class="villa__where">Casa principal · primer piso</span>
-              </button>
-            </h3>
-            <div class="villa__panel" id="v-santorini" role="region" aria-labelledby="vb-santorini">
-              <div class="villa__media"><pic src="villa-santorini" alt="Villa Santorini: cama doble sobre base blanca, puerta azul en arco y flores rojas" sizes="(max-width: 959px) 92vw, 1px"></pic></div>
-              <p>Pensada como villa romántica: una habitación con cama doble, sofacama sencillo, aire acondicionado y una pequeña zona de comedor exterior.</p>
-              <p class="villa__meta">De 2 a 4 personas</p>
-              <a class="link-arrow" href="{{wa|Hola, quisiera información sobre la Villa Santorini en Eco Hotel Panchápolis Rivera: tarifas y disponibilidad.}}" target="_blank" rel="noopener" data-cta="villa">Consultar por esta villa</a>
-            </div>
+        <nav class="vx__index" aria-label="Ir a una villa">
+          <ol>
+            <li><a href="#villa-santorini" data-villa-link="santorini" aria-current="true"><span>01</span>Santorini</a></li>
+            <li><a href="#villa-milo" data-villa-link="milo"><span>02</span>Milo</a></li>
+            <li><a href="#villa-tera" data-villa-link="tera"><span>03</span>Tera</a></li>
+            <li><a href="#villa-oia" data-villa-link="oia"><span>04</span>Oia</a></li>
+            <li><a href="#villa-kea" data-villa-link="kea"><span>05</span>Kea</a></li>
+            <li><a href="#villa-mikonos" data-villa-link="mikonos"><span>06</span>Mikonos</a></li>
+            <li><a href="#villa-kamari" data-villa-link="kamari"><span>07</span>Kamarí</a></li>
+            <li><a href="#villa-fira" data-villa-link="fira"><span>08</span>Fira</a></li>
+            <li><a href="#villa-perissa" data-villa-link="perissa"><span>09</span>Perissa</a></li>
+            <li><a href="#villa-creta" data-villa-link="creta"><span>10</span>Creta</a></li>
+          </ol>
+        </nav>
+        </div>
+
+        <ol class="vx__list" data-villa-list aria-label="Villas">
+          <li class="vx__item is-active" id="villa-santorini" data-villa="santorini">
+            <article class="vx__card" aria-labelledby="vt-santorini">
+              <figure class="vx__media"><pic src="villa-santorini" alt="Villa Santorini: cama doble sobre base blanca, puerta azul en arco y flores rojas" sizes="(max-width: 959px) 84vw, 1px"></pic></figure>
+              <div class="vx__body">
+                <p class="vx__num">01<span> / 10</span></p>
+                <h3 class="vx__name" id="vt-santorini">Villa Santorini</h3>
+                <p class="vx__where">Casa principal · primer piso</p>
+                <p class="vx__desc">Una villa romántica que trae a casa la experiencia de un viaje a Grecia, sin dejar el confort a un lado.</p>
+                <p class="vx__cap"><span>Capacidad</span>De 2 a 4 personas</p>
+                <ul class="vx__features" aria-label="Incluye"><li>1 habitación</li><li>Cama doble</li><li>Sofacama sencillo</li><li>Aire acondicionado</li><li>Comedor exterior</li></ul>
+                <a class="link-arrow vx__cta" href="{{wa|Hola, quisiera información sobre la Villa Santorini en Eco Hotel Panchápolis Rivera: tarifas y disponibilidad.}}" target="_blank" rel="noopener" data-cta="villa">Consultar por Villa Santorini</a>
+              </div>
+            </article>
           </li>
-          <li class="villa" data-villa="milo">
-            <h3 class="villa__title">
-              <button type="button" class="villa__btn" aria-expanded="false" aria-controls="v-milo" id="vb-milo">
-                <span class="villa__num">02</span><span class="villa__name">Villa Milo</span><span class="villa__where">Casa principal · primer piso</span>
-              </button>
-            </h3>
-            <div class="villa__panel" id="v-milo" role="region" aria-labelledby="vb-milo" hidden>
-              <div class="villa__media"><pic src="villa-milo" alt="Villa Milo: dos camas dobles, muro blanco curvo y ventana azul" sizes="(max-width: 959px) 92vw, 1px"></pic></div>
-              <p>Para pareja o familia: una habitación con dos camas dobles, aire acondicionado y baño con torre de hidromasaje.</p>
-              <p class="villa__meta">De 2 a 4 personas</p>
-              <a class="link-arrow" href="{{wa|Hola, quisiera información sobre la Villa Milo en Eco Hotel Panchápolis Rivera: tarifas y disponibilidad.}}" target="_blank" rel="noopener" data-cta="villa">Consultar por esta villa</a>
-            </div>
+          <li class="vx__item" id="villa-milo" data-villa="milo">
+            <article class="vx__card" aria-labelledby="vt-milo">
+              <figure class="vx__media"><pic src="villa-milo" alt="Villa Milo: dos camas dobles, muro blanco curvo y ventana azul" sizes="(max-width: 959px) 84vw, 1px"></pic></figure>
+              <div class="vx__body">
+                <p class="vx__num">02<span> / 10</span></p>
+                <h3 class="vx__name" id="vt-milo">Villa Milo</h3>
+                <p class="vx__where">Casa principal · primer piso</p>
+                <p class="vx__desc">Para pareja o familia: el paisaje de la región, el canto de los pájaros y el clima del descanso.</p>
+                <p class="vx__cap"><span>Capacidad</span>De 2 a 4 personas</p>
+                <ul class="vx__features" aria-label="Incluye"><li>1 habitación</li><li>2 camas dobles</li><li>Aire acondicionado</li><li>Torre de hidromasaje</li><li>Clóset para parejas</li></ul>
+                <a class="link-arrow vx__cta" href="{{wa|Hola, quisiera información sobre la Villa Milo en Eco Hotel Panchápolis Rivera: tarifas y disponibilidad.}}" target="_blank" rel="noopener" data-cta="villa">Consultar por Villa Milo</a>
+              </div>
+            </article>
           </li>
-          <li class="villa" data-villa="tera">
-            <h3 class="villa__title">
-              <button type="button" class="villa__btn" aria-expanded="false" aria-controls="v-tera" id="vb-tera">
-                <span class="villa__num">03</span><span class="villa__name">Villa Tera</span><span class="villa__where">Casa principal · segundo piso</span>
-              </button>
-            </h3>
-            <div class="villa__panel" id="v-tera" role="region" aria-labelledby="vb-tera" hidden>
-              <div class="villa__media"><pic src="villa-tera" alt="Villa Tera: cama king con muro de piedra en arco y cuadro antiguo" sizes="(max-width: 959px) 92vw, 1px"></pic></div>
-              <p>Cama king, baño con torre de hidromasaje para pareja y un balcón compartido con vista a la piscina principal.</p>
-              <p class="villa__meta">Para 2 personas</p>
-              <a class="link-arrow" href="{{wa|Hola, quisiera información sobre la Villa Tera en Eco Hotel Panchápolis Rivera: tarifas y disponibilidad.}}" target="_blank" rel="noopener" data-cta="villa">Consultar por esta villa</a>
-            </div>
+          <li class="vx__item" id="villa-tera" data-villa="tera">
+            <article class="vx__card" aria-labelledby="vt-tera">
+              <figure class="vx__media"><pic src="villa-tera" alt="Villa Tera: cama king con muro de piedra en arco y cuadro antiguo" sizes="(max-width: 959px) 84vw, 1px"></pic></figure>
+              <div class="vx__body">
+                <p class="vx__num">03<span> / 10</span></p>
+                <h3 class="vx__name" id="vt-tera">Villa Tera</h3>
+                <p class="vx__where">Casa principal · segundo piso</p>
+                <p class="vx__desc">Pensada para celebrar el amor: privacidad, vistas panorámicas y un ambiente romántico.</p>
+                <p class="vx__cap"><span>Capacidad</span>2 personas</p>
+                <ul class="vx__features" aria-label="Incluye"><li>Cama king</li><li>Balcón compartido con vista a la piscina principal</li><li>Hidromasaje para pareja</li><li>Smart TV</li></ul>
+                <a class="link-arrow vx__cta" href="{{wa|Hola, quisiera información sobre la Villa Tera en Eco Hotel Panchápolis Rivera: tarifas y disponibilidad.}}" target="_blank" rel="noopener" data-cta="villa">Consultar por Villa Tera</a>
+              </div>
+            </article>
           </li>
-          <li class="villa" data-villa="oia">
-            <h3 class="villa__title">
-              <button type="button" class="villa__btn" aria-expanded="false" aria-controls="v-oia" id="vb-oia">
-                <span class="villa__num">04</span><span class="villa__name">Villa Oia</span><span class="villa__where">Casa principal · segundo piso</span>
-              </button>
-            </h3>
-            <div class="villa__panel" id="v-oia" role="region" aria-labelledby="vb-oia" hidden>
-              <div class="villa__media"><pic src="villa-oia" alt="Villa Oia: dos camas dobles, nichos en arco y marco de puerta azul" sizes="(max-width: 959px) 92vw, 1px"></pic></div>
-              <p>Una habitación con dos camas dobles y balcón compartido, para descansar con el paisaje de la región y el canto de los pájaros.</p>
-              <p class="villa__meta">De 2 a 4 personas</p>
-              <a class="link-arrow" href="{{wa|Hola, quisiera información sobre la Villa Oia en Eco Hotel Panchápolis Rivera: tarifas y disponibilidad.}}" target="_blank" rel="noopener" data-cta="villa">Consultar por esta villa</a>
-            </div>
+          <li class="vx__item" id="villa-oia" data-villa="oia">
+            <article class="vx__card" aria-labelledby="vt-oia">
+              <figure class="vx__media"><pic src="villa-oia" alt="Villa Oia: dos camas dobles, nichos en arco y marco de puerta azul" sizes="(max-width: 959px) 84vw, 1px"></pic></figure>
+              <div class="vx__body">
+                <p class="vx__num">04<span> / 10</span></p>
+                <h3 class="vx__name" id="vt-oia">Villa Oia</h3>
+                <p class="vx__where">Casa principal · segundo piso</p>
+                <p class="vx__desc">La tranquilidad de la naturaleza y el paisaje de la región, con terraza compartida.</p>
+                <p class="vx__cap"><span>Capacidad</span>De 2 a 4 personas</p>
+                <ul class="vx__features" aria-label="Incluye"><li>1 habitación</li><li>2 camas dobles</li><li>Balcón compartido</li><li>Nevera con minibar</li></ul>
+                <a class="link-arrow vx__cta" href="{{wa|Hola, quisiera información sobre la Villa Oia en Eco Hotel Panchápolis Rivera: tarifas y disponibilidad.}}" target="_blank" rel="noopener" data-cta="villa">Consultar por Villa Oia</a>
+              </div>
+            </article>
           </li>
-          <li class="villa" data-villa="kea">
-            <h3 class="villa__title">
-              <button type="button" class="villa__btn" aria-expanded="false" aria-controls="v-kea" id="vb-kea">
-                <span class="villa__num">05</span><span class="villa__name">Villa Kea</span><span class="villa__where">Casa principal · segundo piso</span>
-              </button>
-            </h3>
-            <div class="villa__panel" id="v-kea" role="region" aria-labelledby="vb-kea" hidden>
-              <div class="villa__media"><pic src="villa-kea" alt="Villa Kea: cama queen con cojines blancos y luz cálida de aplique" sizes="(max-width: 959px) 92vw, 1px"></pic></div>
-              <p>Refugio para parejas: cama queen, torre de hidromasaje para pareja y balcón compartido con vista a la piscina principal.</p>
-              <p class="villa__meta">Para 2 personas</p>
-              <a class="link-arrow" href="{{wa|Hola, quisiera información sobre la Villa Kea en Eco Hotel Panchápolis Rivera: tarifas y disponibilidad.}}" target="_blank" rel="noopener" data-cta="villa">Consultar por esta villa</a>
-            </div>
+          <li class="vx__item" id="villa-kea" data-villa="kea">
+            <article class="vx__card" aria-labelledby="vt-kea">
+              <figure class="vx__media"><pic src="villa-kea" alt="Villa Kea: cama queen con cojines blancos y luz cálida de aplique" sizes="(max-width: 959px) 84vw, 1px"></pic></figure>
+              <div class="vx__body">
+                <p class="vx__num">05<span> / 10</span></p>
+                <h3 class="vx__name" id="vt-kea">Villa Kea</h3>
+                <p class="vx__where">Casa principal · segundo piso</p>
+                <p class="vx__desc">El refugio para parejas que buscan desconectarse y dejarse envolver por el clima.</p>
+                <p class="vx__cap"><span>Capacidad</span>Pareja · consulta por persona adicional</p>
+                <ul class="vx__features" aria-label="Incluye"><li>Cama queen</li><li>Hidromasaje para pareja</li><li>Balcón compartido con vista a la piscina principal</li></ul>
+                <a class="link-arrow vx__cta" href="{{wa|Hola, quisiera información sobre la Villa Kea en Eco Hotel Panchápolis Rivera: tarifas y disponibilidad.}}" target="_blank" rel="noopener" data-cta="villa">Consultar por Villa Kea</a>
+              </div>
+            </article>
           </li>
-          <li class="villa" data-villa="mikonos">
-            <h3 class="villa__title">
-              <button type="button" class="villa__btn" aria-expanded="false" aria-controls="v-mikonos" id="vb-mikonos">
-                <span class="villa__num">06</span><span class="villa__name">Villa Mikonos</span><span class="villa__where">Suite presidencial · tercer piso</span>
-              </button>
-            </h3>
-            <div class="villa__panel" id="v-mikonos" role="region" aria-labelledby="vb-mikonos" hidden>
-              <div class="villa__media"><pic src="villa-mikonos" alt="Villa Mikonos: cama king frente a un nicho de piedra en arco y puerta azul" sizes="(max-width: 959px) 92vw, 1px"></pic></div>
-              <p>En el punto más alto de la casa: cama king, terraza privada, balcón, jacuzzi privado y vistas panorámicas a las montañas.</p>
-              <p class="villa__meta">Para 2 personas</p>
-              <a class="link-arrow" href="{{wa|Hola, quisiera información sobre la Villa Mikonos (suite presidencial) en Eco Hotel Panchápolis Rivera: tarifas y disponibilidad.}}" target="_blank" rel="noopener" data-cta="villa">Consultar por esta villa</a>
-            </div>
+          <li class="vx__item" id="villa-mikonos" data-villa="mikonos">
+            <article class="vx__card" aria-labelledby="vt-mikonos">
+              <figure class="vx__media"><pic src="villa-mikonos" alt="Villa Mikonos: cama king frente a un nicho de piedra en arco y puerta azul" sizes="(max-width: 959px) 84vw, 1px"></pic></figure>
+              <div class="vx__body">
+                <p class="vx__num">06<span> / 10</span></p>
+                <h3 class="vx__name" id="vt-mikonos">Villa Mikonos</h3>
+                <p class="vx__where">Suite presidencial · tercer piso</p>
+                <p class="vx__desc">En el punto más alto de la casa: un refugio íntimo con vistas panorámicas a las montañas.</p>
+                <p class="vx__cap"><span>Capacidad</span>2 personas</p>
+                <ul class="vx__features" aria-label="Incluye"><li>Cama king</li><li>Terraza privada</li><li>Jacuzzi privado</li><li>Balcón</li><li>Aire acondicionado</li></ul>
+                <a class="link-arrow vx__cta" href="{{wa|Hola, quisiera información sobre la Villa Mikonos (suite presidencial) en Eco Hotel Panchápolis Rivera: tarifas y disponibilidad.}}" target="_blank" rel="noopener" data-cta="villa">Consultar por Villa Mikonos</a>
+              </div>
+            </article>
           </li>
-          <li class="villa" data-villa="kamari">
-            <h3 class="villa__title">
-              <button type="button" class="villa__btn" aria-expanded="false" aria-controls="v-kamari" id="vb-kamari">
-                <span class="villa__num">07</span><span class="villa__name">Villa Kamarí</span><span class="villa__where">Villa · 2 habitaciones</span>
-              </button>
-            </h3>
-            <div class="villa__panel" id="v-kamari" role="region" aria-labelledby="vb-kamari" hidden>
-              <div class="villa__media"><pic src="villa-kamari" alt="Villa Kamarí: casa blanca con pérgolas azules entre palmas y jardín" sizes="(max-width: 959px) 92vw, 1px"></pic></div>
-              <p>Para celebrar con familia o amigos: dos habitaciones equipadas, sala, jacuzzi y una cama opcional de estilo mediterráneo.</p>
-              <p class="villa__meta">De 4 a 6 personas</p>
-              <a class="link-arrow" href="{{wa|Hola, quisiera información sobre la Villa Kamarí en Eco Hotel Panchápolis Rivera: tarifas y disponibilidad.}}" target="_blank" rel="noopener" data-cta="villa">Consultar por esta villa</a>
-            </div>
+          <li class="vx__item" id="villa-kamari" data-villa="kamari">
+            <article class="vx__card" aria-labelledby="vt-kamari">
+              <figure class="vx__media"><pic src="villa-kamari" alt="Villa Kamarí: casa blanca con pérgolas azules entre palmas y jardín" sizes="(max-width: 959px) 84vw, 1px"></pic></figure>
+              <div class="vx__body">
+                <p class="vx__num">07<span> / 10</span></p>
+                <h3 class="vx__name" id="vt-kamari">Villa Kamarí</h3>
+                <p class="vx__where">Villa · 2 habitaciones</p>
+                <p class="vx__desc">Ideal para compartir celebraciones con familia y amigos, en medio de la naturaleza.</p>
+                <p class="vx__cap"><span>Capacidad</span>De 4 a 6 personas</p>
+                <ul class="vx__features" aria-label="Incluye"><li>2 habitaciones equipadas</li><li>Sala</li><li>Jacuzzi</li><li>Cama opcional estilo mediterráneo</li></ul>
+                <a class="link-arrow vx__cta" href="{{wa|Hola, quisiera información sobre la Villa Kamarí en Eco Hotel Panchápolis Rivera: tarifas y disponibilidad.}}" target="_blank" rel="noopener" data-cta="villa">Consultar por Villa Kamarí</a>
+              </div>
+            </article>
           </li>
-          <li class="villa" data-villa="fira">
-            <h3 class="villa__title">
-              <button type="button" class="villa__btn" aria-expanded="false" aria-controls="v-fira" id="vb-fira">
-                <span class="villa__num">08</span><span class="villa__name">Villa Fira</span><span class="villa__where">Villa · 3 habitaciones</span>
-              </button>
-            </h3>
-            <div class="villa__panel" id="v-fira" role="region" aria-labelledby="vb-fira" hidden>
-              <div class="villa__media"><pic src="villa-fira" alt="Villa Fira: cúpula azul, materas con flores en la pared y piso de piedra" sizes="(max-width: 959px) 92vw, 1px"></pic></div>
-              <p>Tres habitaciones, cocina, piscina de inmersión en el área social y una cama colgante en su zona privada. A un costado, la piscina de agua natural con cascada.</p>
-              <p class="villa__meta">Hasta 6 personas</p>
-              <a class="link-arrow" href="{{wa|Hola, quisiera información sobre la Villa Fira en Eco Hotel Panchápolis Rivera: tarifas y disponibilidad.}}" target="_blank" rel="noopener" data-cta="villa">Consultar por esta villa</a>
-            </div>
+          <li class="vx__item" id="villa-fira" data-villa="fira">
+            <article class="vx__card" aria-labelledby="vt-fira">
+              <figure class="vx__media"><pic src="villa-fira" alt="Villa Fira: cúpula azul, materas con flores en la pared y piso de piedra" sizes="(max-width: 959px) 84vw, 1px"></pic></figure>
+              <div class="vx__body">
+                <p class="vx__num">08<span> / 10</span></p>
+                <h3 class="vx__name" id="vt-fira">Villa Fira</h3>
+                <p class="vx__where">Villa · 3 habitaciones</p>
+                <p class="vx__desc">Amplios espacios para vacaciones en familia; a un costado, la piscina de agua natural con cascada.</p>
+                <p class="vx__cap"><span>Capacidad</span>Hasta 6 personas</p>
+                <ul class="vx__features" aria-label="Incluye"><li>3 habitaciones</li><li>Cocina</li><li>Piscina de inmersión</li><li>Cama colgante en área social privada</li></ul>
+                <a class="link-arrow vx__cta" href="{{wa|Hola, quisiera información sobre la Villa Fira en Eco Hotel Panchápolis Rivera: tarifas y disponibilidad.}}" target="_blank" rel="noopener" data-cta="villa">Consultar por Villa Fira</a>
+              </div>
+            </article>
           </li>
-          <li class="villa" data-villa="perissa">
-            <h3 class="villa__title">
-              <button type="button" class="villa__btn" aria-expanded="false" aria-controls="v-perissa" id="vb-perissa">
-                <span class="villa__num">09</span><span class="villa__name">Villa Perissa</span><span class="villa__where">Villa · piscina privada</span>
-              </button>
-            </h3>
-            <div class="villa__panel" id="v-perissa" role="region" aria-labelledby="vb-perissa" hidden>
-              <div class="villa__media"><pic src="villa-perissa" alt="Villa Perissa: arco con buganvilia y puertas azules" sizes="(max-width: 959px) 92vw, 1px"></pic></div>
-              <p>Arquitectura cicládica para grupos: tres habitaciones, cocina, piscina privada, zonas húmedas y playeras para tomar el sol.</p>
-              <p class="villa__meta">Grupos desde 6 personas</p>
-              <a class="link-arrow" href="{{wa|Hola, quisiera información sobre la Villa Perissa en Eco Hotel Panchápolis Rivera: tarifas y disponibilidad.}}" target="_blank" rel="noopener" data-cta="villa">Consultar por esta villa</a>
-            </div>
+          <li class="vx__item" id="villa-perissa" data-villa="perissa">
+            <article class="vx__card" aria-labelledby="vt-perissa">
+              <figure class="vx__media"><pic src="villa-perissa" alt="Villa Perissa: arco con buganvilia y puertas azules" sizes="(max-width: 959px) 84vw, 1px"></pic></figure>
+              <div class="vx__body">
+                <p class="vx__num">09<span> / 10</span></p>
+                <h3 class="vx__name" id="vt-perissa">Villa Perissa</h3>
+                <p class="vx__where">Villa · piscina privada</p>
+                <p class="vx__desc">Arquitectura cicládica, vistas a la montaña y un refugio de paz para grupos.</p>
+                <p class="vx__cap"><span>Capacidad</span>Grupos desde 6 personas</p>
+                <ul class="vx__features" aria-label="Incluye"><li>3 habitaciones</li><li>Piscina privada</li><li>Zonas húmedas</li><li>Playeras para broncearse</li><li>Cocina</li></ul>
+                <a class="link-arrow vx__cta" href="{{wa|Hola, quisiera información sobre la Villa Perissa en Eco Hotel Panchápolis Rivera: tarifas y disponibilidad.}}" target="_blank" rel="noopener" data-cta="villa">Consultar por Villa Perissa</a>
+              </div>
+            </article>
           </li>
-          <li class="villa" data-villa="creta">
-            <h3 class="villa__title">
-              <button type="button" class="villa__btn" aria-expanded="false" aria-controls="v-creta" id="vb-creta">
-                <span class="villa__num">10</span><span class="villa__name">Villa Creta</span><span class="villa__where">Villa · 600 m² en dos niveles</span>
-              </button>
-            </h3>
-            <div class="villa__panel" id="v-creta" role="region" aria-labelledby="vb-creta" hidden>
-              <div class="villa__media"><pic src="villa-creta" alt="Entrada a Villa Creta: reja blanca con hojas caladas entre vegetación tropical" sizes="(max-width: 959px) 92vw, 1px"></pic></div>
-              <p>Inmersa en la vegetación: piscina privada con cascada, jacuzzi privado de agua caliente, área social con chimenea, cama colgante junto a la piscina y malla catamarán con vista a la montaña.</p>
-              <p class="villa__meta">Pareja, familia o amigos · consulta la capacidad</p>
-              <a class="link-arrow" href="{{wa|Hola, quisiera información sobre la Villa Creta en Eco Hotel Panchápolis Rivera: tarifas, capacidad y disponibilidad.}}" target="_blank" rel="noopener" data-cta="villa">Consultar por esta villa</a>
-            </div>
+          <li class="vx__item" id="villa-creta" data-villa="creta">
+            <article class="vx__card" aria-labelledby="vt-creta">
+              <figure class="vx__media"><pic src="villa-creta" alt="Entrada a Villa Creta: reja blanca con hojas caladas entre vegetación tropical" sizes="(max-width: 959px) 84vw, 1px"></pic></figure>
+              <div class="vx__body">
+                <p class="vx__num">10<span> / 10</span></p>
+                <h3 class="vx__name" id="vt-creta">Villa Creta</h3>
+                <p class="vx__where">Villa · 600 m² en dos niveles</p>
+                <p class="vx__desc">Inmersa en la vegetación e ideal para celebraciones privadas.</p>
+                <p class="vx__cap"><span>Capacidad</span>Pareja, familia o amigos · consulta la capacidad</p>
+                <ul class="vx__features" aria-label="Incluye"><li>Piscina privada con cascada</li><li>Jacuzzi privado de agua caliente</li><li>Área social con chimenea</li><li>Malla catamarán con vista a la montaña</li></ul>
+                <a class="link-arrow vx__cta" href="{{wa|Hola, quisiera información sobre la Villa Creta en Eco Hotel Panchápolis Rivera: tarifas, capacidad y disponibilidad.}}" target="_blank" rel="noopener" data-cta="villa">Consultar por Villa Creta</a>
+              </div>
+            </article>
           </li>
         </ol>
-      </div>
-    </section>
 
-    <!-- ═════════ D · BIENESTAR Y GASTRONOMÍA ═════════ -->
-    <section class="wellness" id="bienestar" aria-labelledby="wellness-title">
-      <figure class="wellness__media" data-reveal>
-        <div class="frame" data-parallax="6">
-          <pic src="villa-creta" alt="Sendero de piedra hacia una reja blanca entre plantas tropicales" sizes="(min-width: 960px) 50vw, 100vw" pos="50% 60%"></pic>
+        <div class="vx__controls" aria-label="Navegar villas" role="group">
+          <button type="button" class="vx__arrow" data-villa-prev aria-label="Villa anterior">←</button>
+          <p class="vx__counter" aria-live="polite"><span data-villa-current>01</span> / 10</p>
+          <button type="button" class="vx__arrow" data-villa-next aria-label="Villa siguiente">→</button>
         </div>
-      </figure>
-      <div class="wellness__body">
-        <p class="eyebrow"><span class="idx">04</span>Bienestar y gastronomía</p>
-        <h2 class="display" id="wellness-title" data-lines>
-          <span class="ln"><span>Bajar el ritmo</span></span>
-          <span class="ln"><span><em>también</em> es un plan</span></span>
-        </h2>
-        <ul class="wellness__list">
-          <li data-fade>
-            <h3>Spa</h3>
-            <p>El hotel ofrece planes de spa. Escríbenos y te contamos qué incluyen y cómo reservarlos.</p>
-          </li>
-          <li data-fade>
-            <h3>Restaurante a la carta</h3>
-            <p>Para comer sin salir del hotel, después de la piscina o al final del día.</p>
-          </li>
-          <li data-fade>
-            <h3>Jacuzzis, fogata y zona BBQ</h3>
-            <p>Rincones para cerrar la tarde en calma o compartir alrededor del fuego.</p>
-          </li>
-        </ul>
-        <a class="link-arrow" href="{{wa|Hola, quisiera conocer los planes de spa y el restaurante de Eco Hotel Panchápolis Rivera.}}" target="_blank" rel="noopener" data-cta="bienestar">Preguntar por spa y restaurante</a>
       </div>
     </section>
 
-    <!-- ═════════ E · COMPARTIR ═════════ -->
-    <section class="share" id="compartir" aria-labelledby="share-title">
-      <div class="wrap share__grid">
-        <header class="share__head">
-          <p class="eyebrow"><span class="idx">05</span>Una escapada para compartir</p>
-          <h2 class="display" id="share-title" data-lines>
-            <span class="ln"><span>Con la familia,</span></span>
-            <span class="ln"><span>los amigos</span></span>
-            <span class="ln"><span>y <em>quien mueve la cola</em></span></span>
+    <!-- ═════════ E · RECORRIDO 2.5D ═════════ -->
+    <section class="journey" id="recorrido" aria-labelledby="journey-title" data-journey data-atmos="deep">
+      <div class="wrap journey__head">
+        <p class="eyebrow eyebrow--light"><span class="idx">04</span>Recorrido</p>
+        <h2 class="display display--light" id="journey-title" data-lines>
+          <span class="ln"><span>Camina Panchápolis</span></span>
+          <span class="ln"><span><em>sin prisa</em></span></span>
+        </h2>
+        <p class="journey__hint">Usa las flechas, arrastra o toca los números para avanzar.</p>
+      </div>
+
+      <div class="journey__stage" data-journey-stage tabindex="0" role="region" aria-roledescription="carrusel" aria-label="Recorrido por Panchápolis en seis paradas. Usa las flechas izquierda y derecha.">
+        <div class="journey__world" data-journey-world>
+          <figure class="journey__plane is-active" data-journey-plane role="group" aria-roledescription="parada" aria-label="1 de 6: Llegada">
+            <div class="journey__img"><pic src="casa-principal-piscina" alt="Casa principal de tres niveles con barandas azules frente a la piscina" sizes="(min-width: 960px) 46vw, 82vw"></pic></div>
+          </figure>
+          <figure class="journey__plane" data-journey-plane role="group" aria-roledescription="parada" aria-label="2 de 6: Pérgolas" aria-hidden="true">
+            <div class="journey__img"><pic src="pasillo-pergola" alt="Corredor con pérgola azul, faroles y puertas azules" sizes="(min-width: 960px) 46vw, 82vw"></pic></div>
+          </figure>
+          <figure class="journey__plane" data-journey-plane role="group" aria-roledescription="parada" aria-label="3 de 6: Agua natural" aria-hidden="true">
+            <div class="journey__img"><pic src="pasadia-cascada" alt="Piscina de agua natural con cascada de piedra y bañistas" sizes="(min-width: 960px) 46vw, 82vw"></pic></div>
+          </figure>
+          <figure class="journey__plane" data-journey-plane role="group" aria-roledescription="parada" aria-label="4 de 6: Villa Fira" aria-hidden="true">
+            <div class="journey__img"><pic src="villa-fira" alt="Villa Fira con cúpula azul y materas con flores" sizes="(min-width: 960px) 46vw, 82vw"></pic></div>
+          </figure>
+          <figure class="journey__plane" data-journey-plane role="group" aria-roledescription="parada" aria-label="5 de 6: Hacia Villa Creta" aria-hidden="true">
+            <div class="journey__img"><pic src="villa-creta" alt="Sendero de piedra hacia la reja blanca de Villa Creta" sizes="(min-width: 960px) 46vw, 82vw"></pic></div>
+          </figure>
+          <figure class="journey__plane" data-journey-plane role="group" aria-roledescription="parada" aria-label="6 de 6: De noche" aria-hidden="true">
+            <div class="journey__img"><pic src="fachada-noche" alt="Casa principal iluminada de noche junto a la piscina" sizes="(min-width: 960px) 46vw, 82vw"></pic></div>
+          </figure>
+        </div>
+        <div class="journey__fog" aria-hidden="true"></div>
+      </div>
+
+      <div class="wrap journey__ui">
+        <div class="journey__caption" aria-live="polite" data-journey-caption>
+          <div class="journey__cap is-active" data-journey-cap><p class="journey__step">01 / 06</p><h3>Llegada</h3><p>La casa principal: tres niveles de muros blancos, arcos y barandas azules frente a la piscina.</p></div>
+          <div class="journey__cap" data-journey-cap><p class="journey__step">02 / 06</p><h3>Pérgolas</h3><p>Corredores de piedra bajo pérgolas azules, faroles y buganvilias.</p></div>
+          <div class="journey__cap" data-journey-cap><p class="journey__step">03 / 06</p><h3>Agua natural</h3><p>La piscina de agua natural con cascada, entre helechos y vegetación tropical.</p></div>
+          <div class="journey__cap" data-journey-cap><p class="journey__step">04 / 06</p><h3>Villa Fira</h3><p>Cúpula azul, ventanas abiertas y materas floridas sobre la pared blanca.</p></div>
+          <div class="journey__cap" data-journey-cap><p class="journey__step">05 / 06</p><h3>Hacia Villa Creta</h3><p>Un sendero de piedra entre heliconias y lenguas de suegra lleva a la reja calada de Villa Creta.</p></div>
+          <div class="journey__cap" data-journey-cap><p class="journey__step">06 / 06</p><h3>De noche</h3><p>Cuando cae la noche, la casa principal se ilumina sobre el agua.</p></div>
+        </div>
+        <div class="journey__nav">
+          <button type="button" class="journey__arrow" data-journey-prev aria-label="Parada anterior">←</button>
+          <ol class="journey__dots">
+            <li><button type="button" data-journey-go="0" aria-label="01: Llegada" aria-current="step">01</button></li>
+            <li><button type="button" data-journey-go="1" aria-label="02: Pérgolas">02</button></li>
+            <li><button type="button" data-journey-go="2" aria-label="03: Agua natural">03</button></li>
+            <li><button type="button" data-journey-go="3" aria-label="04: Villa Fira">04</button></li>
+            <li><button type="button" data-journey-go="4" aria-label="05: Hacia Villa Creta">05</button></li>
+            <li><button type="button" data-journey-go="5" aria-label="06: De noche">06</button></li>
+          </ol>
+          <button type="button" class="journey__arrow" data-journey-next aria-label="Parada siguiente">→</button>
+        </div>
+        <p class="journey__note">Recorrido ilustrativo con fotografías reales del hotel. El orden de las paradas no representa la distribución real de los espacios.</p>
+      </div>
+    </section>
+
+    <!-- ═════════ F · EXPERIENCIAS ═════════ -->
+    <section class="exp" id="experiencias" aria-labelledby="exp-title" data-exp data-atmos="sand">
+      <div class="wrap exp__grid">
+        <header class="exp__head">
+          <p class="eyebrow"><span class="idx">05</span>Bienestar, sabores y experiencias</p>
+          <h2 class="display" id="exp-title" data-lines>
+            <span class="ln"><span>Bajar el ritmo</span></span>
+            <span class="ln"><span><em>también</em> es un plan</span></span>
           </h2>
         </header>
-
-        <figure class="share__pet" data-reveal>
-          <div class="frame" data-parallax="6">
-            <pic src="pareja-mascotas" alt="Pareja sentada en un sofá exterior, cada uno con su perro en brazos" sizes="(min-width: 960px) 46vw, 92vw" pos="50% 45%"></pic>
+        <div class="exp__tabs" role="tablist" aria-label="Experiencias" aria-orientation="vertical">
+          <button type="button" role="tab" class="exp__tab" id="exp-tab-spa" aria-controls="exp-panel-spa" aria-selected="true"><svg class="icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path pathLength="1" d="M24 38c-7 0-13-5-13-12 5 0 9 2 13 7 4-5 8-7 13-7 0 7-6 12-13 12Z"/><path pathLength="1" d="M24 33c-3-4-4-9-2-15 1-3 2-5 2-5s1 2 2 5c2 6 1 11-2 15Z"/><path pathLength="1" d="M8 42h32"/></svg><span>Spa</span></button>
+          <button type="button" role="tab" class="exp__tab" id="exp-tab-restaurante" aria-controls="exp-panel-restaurante" aria-selected="false" tabindex="-1"><svg class="icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle pathLength="1" cx="24" cy="25" r="11"/><circle pathLength="1" cx="24" cy="25" r="6.5"/><path pathLength="1" d="M7 12v10a3 3 0 0 0 3 3v13M10 12v7M13 12v10a3 3 0 0 1-3 3"/><path pathLength="1" d="M40 38V12c-3 2-4 6-4 11h4"/></svg><span>Restaurante a la carta</span></button>
+          <button type="button" role="tab" class="exp__tab" id="exp-tab-fuego" aria-controls="exp-panel-fuego" aria-selected="false" tabindex="-1"><svg class="icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path pathLength="1" d="M24 41c-7 0-11-5-11-10 0-6 5-9 6-15 3 3 4 6 4 9 2-2 3-5 3-9 5 4 9 10 9 15 0 6-4 10-11 10Z"/><path pathLength="1" d="M24 41c-3 0-5-2-5-5 0-3 3-5 4-8 2 2 3 4 3 6 1-1 2-2 2-3 1 2 1 3 1 5 0 3-2 5-5 5Z"/><path pathLength="1" d="M10 44h28"/></svg><span>Jacuzzis, fogata y BBQ</span></button>
+          <button type="button" role="tab" class="exp__tab" id="exp-tab-pasadia" aria-controls="exp-panel-pasadia" aria-selected="false" tabindex="-1"><svg class="icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle pathLength="1" cx="24" cy="22" r="8"/><path pathLength="1" d="M24 6v4M24 34v4M8 22h4M36 22h4M12.7 10.7l2.8 2.8M32.5 30.5l2.8 2.8M12.7 33.3l2.8-2.8M32.5 13.5l2.8-2.8"/><path pathLength="1" d="M6 43c3-2 6-2 9 0s6 2 9 0 6-2 9 0 6 2 9 0"/></svg><span>Experiencia pasadía</span></button>
+          <button type="button" role="tab" class="exp__tab" id="exp-tab-mascotas" aria-controls="exp-panel-mascotas" aria-selected="false" tabindex="-1"><svg class="icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><ellipse pathLength="1" cx="24" cy="32" rx="8" ry="6.5"/><ellipse pathLength="1" cx="14" cy="20" rx="3.2" ry="4.2"/><ellipse pathLength="1" cx="34" cy="20" rx="3.2" ry="4.2"/><ellipse pathLength="1" cx="20" cy="13" rx="3" ry="4"/><ellipse pathLength="1" cx="28" cy="13" rx="3" ry="4"/></svg><span>Pet friendly</span></button>
+          <button type="button" role="tab" class="exp__tab" id="exp-tab-zonas" aria-controls="exp-panel-zonas" aria-selected="false" tabindex="-1"><svg class="icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle pathLength="1" cx="24" cy="24" r="14"/><path pathLength="1" d="M10.5 20c6 1 12 6 14 17.8M24 10c-2 6-1 13 6 19.5M37.8 21c-6-1-12 1-16.5 7"/></svg><span>Zonas sociales</span></button>
+        </div>
+        <div class="exp__panels">
+          <div class="exp__panel is-active" role="tabpanel" id="exp-panel-spa" aria-labelledby="exp-tab-spa" data-exp-panel tabindex="0">
+            <div class="exp__mark" aria-hidden="true"><svg class="icon icon--xl" viewBox="0 0 48 48" focusable="false"><path pathLength="1" d="M24 38c-7 0-13-5-13-12 5 0 9 2 13 7 4-5 8-7 13-7 0 7-6 12-13 12Z"/><path pathLength="1" d="M24 33c-3-4-4-9-2-15 1-3 2-5 2-5s1 2 2 5c2 6 1 11-2 15Z"/><path pathLength="1" d="M8 42h32"/></svg></div>
+            <div class="exp__copy"><h3>Spa</h3><p class="lead">El hotel ofrece planes de spa.</p><p>Escríbenos y te contamos qué incluyen y cómo reservarlos.</p><a class="link-arrow" href="{{wa|Hola, quisiera conocer los planes de spa de Eco Hotel Panchápolis Rivera.}}" target="_blank" rel="noopener" data-cta="experiencia">Preguntar por el spa</a></div>
           </div>
-        </figure>
-
-        <div class="share__pet-text">
-          <p class="tag">Pet friendly</p>
-          <p class="lead" data-fade>Tu mascota también puede venir. Antes del viaje, consulta por WhatsApp las condiciones de ingreso para mascotas.</p>
-          <a class="link-arrow" href="{{wa|Hola, quisiera conocer las condiciones de ingreso para mascotas en Eco Hotel Panchápolis Rivera.}}" target="_blank" rel="noopener" data-cta="mascotas">Consultar condiciones para mascotas</a>
+          <div class="exp__panel" role="tabpanel" id="exp-panel-restaurante" aria-labelledby="exp-tab-restaurante" data-exp-panel tabindex="0">
+            <div class="exp__mark" aria-hidden="true"><svg class="icon icon--xl" viewBox="0 0 48 48" focusable="false"><circle pathLength="1" cx="24" cy="25" r="11"/><circle pathLength="1" cx="24" cy="25" r="6.5"/><path pathLength="1" d="M7 12v10a3 3 0 0 0 3 3v13M10 12v7M13 12v10a3 3 0 0 1-3 3"/><path pathLength="1" d="M40 38V12c-3 2-4 6-4 11h4"/></svg></div>
+            <div class="exp__copy"><h3>Restaurante a la carta</h3><p class="lead">Cocina a la carta sin salir del hotel.</p><p>Después de la piscina o al final del día. Pide la carta y sus horarios por WhatsApp.</p><a class="link-arrow" href="{{wa|Hola, quisiera conocer la carta y los horarios del restaurante de Eco Hotel Panchápolis Rivera.}}" target="_blank" rel="noopener" data-cta="experiencia">Pedir la carta</a></div>
+          </div>
+          <div class="exp__panel" role="tabpanel" id="exp-panel-fuego" aria-labelledby="exp-tab-fuego" data-exp-panel tabindex="0">
+            <div class="exp__mark" aria-hidden="true"><svg class="icon icon--xl" viewBox="0 0 48 48" focusable="false"><path pathLength="1" d="M24 41c-7 0-11-5-11-10 0-6 5-9 6-15 3 3 4 6 4 9 2-2 3-5 3-9 5 4 9 10 9 15 0 6-4 10-11 10Z"/><path pathLength="1" d="M24 41c-3 0-5-2-5-5 0-3 3-5 4-8 2 2 3 4 3 6 1-1 2-2 2-3 1 2 1 3 1 5 0 3-2 5-5 5Z"/><path pathLength="1" d="M10 44h28"/></svg></div>
+            <div class="exp__copy"><h3>Jacuzzis, fogata y BBQ</h3><p class="lead">Rincones para cerrar la tarde.</p><p>Jacuzzis, fogata y zona BBQ para bajar el ritmo o compartir alrededor del fuego.</p></div>
+          </div>
+          <div class="exp__panel exp__panel--photo" role="tabpanel" id="exp-panel-pasadia" aria-labelledby="exp-tab-pasadia" data-exp-panel tabindex="0">
+            <figure class="exp__media" data-exp-media><pic src="pasadia-cascada" alt="Bañistas jugando bajo la cascada de la piscina de agua natural" sizes="(min-width: 960px) 34vw, 92vw"></pic></figure>
+            <div class="exp__copy"><h3>Experiencia pasadía</h3><p class="lead">De 10:00 a.&nbsp;m. a 5:00 p.&nbsp;m., sin hospedaje.</p><p>Acceso a zonas sociales: piscina de agua natural con cascada, piscina de agua tratada, zonas verdes, microfútbol, vóley playa y más. No se permite el ingreso de alimentos ni bebidas.</p><a class="link-arrow" href="{{wa|Hola, quisiera información sobre la experiencia pasadía en Eco Hotel Panchápolis Rivera.}}" target="_blank" rel="noopener" data-cta="experiencia">Consultar pasadía</a></div>
+          </div>
+          <div class="exp__panel exp__panel--photo" role="tabpanel" id="exp-panel-mascotas" aria-labelledby="exp-tab-mascotas" data-exp-panel tabindex="0">
+            <figure class="exp__media" data-exp-media><pic src="pareja-mascotas" alt="Pareja sentada en un sofá exterior, cada uno con su perro en brazos" sizes="(min-width: 960px) 34vw, 92vw"></pic></figure>
+            <div class="exp__copy"><h3>Pet friendly</h3><p class="lead">Tu mascota también puede venir.</p><p>Antes del viaje, consulta por WhatsApp las condiciones de ingreso para mascotas.</p><a class="link-arrow" href="{{wa|Hola, quisiera conocer las condiciones de ingreso para mascotas en Eco Hotel Panchápolis Rivera.}}" target="_blank" rel="noopener" data-cta="experiencia">Consultar condiciones</a></div>
+          </div>
+          <div class="exp__panel" role="tabpanel" id="exp-panel-zonas" aria-labelledby="exp-tab-zonas" data-exp-panel tabindex="0">
+            <div class="exp__mark" aria-hidden="true"><svg class="icon icon--xl" viewBox="0 0 48 48" focusable="false"><circle pathLength="1" cx="24" cy="24" r="14"/><path pathLength="1" d="M10.5 20c6 1 12 6 14 17.8M24 10c-2 6-1 13 6 19.5M37.8 21c-6-1-12 1-16.5 7"/></svg></div>
+            <div class="exp__copy"><h3>Zonas sociales</h3><p class="lead">Para la familia y los amigos.</p><ul class="areas"><li>Piscinas</li><li>Espejos de agua natural</li><li>Zonas verdes</li><li>Parque infantil</li><li>Microfútbol</li><li>Vóley playa</li><li>Capilla privada</li><li>Zona BBQ</li><li>Hangar para eventos sociales</li><li>Parqueaderos</li></ul></div>
+          </div>
         </div>
-
-        <div class="share__areas">
-          <h3 class="eyebrow">Zonas sociales</h3>
-          <ul class="areas" data-fade>
-            <li>Piscinas</li>
-            <li>Espejos de agua natural</li>
-            <li>Zonas verdes</li>
-            <li>Parque infantil</li>
-            <li>Microfútbol</li>
-            <li>Vóley playa</li>
-            <li>Capilla privada</li>
-            <li>Zona BBQ</li>
-            <li>Hangar para eventos sociales</li>
-            <li>Parqueaderos</li>
-          </ul>
-        </div>
-
-        <aside class="daypass" aria-labelledby="daypass-title">
-          <p class="eyebrow">Sin hospedaje</p>
-          <h3 id="daypass-title">Experiencia pasadía</h3>
-          <p>De 10:00 a.&nbsp;m. a 5:00 p.&nbsp;m., con acceso a las zonas sociales: piscina de agua natural con cascada, piscina de agua tratada, zonas verdes, microfútbol, vóley playa y más.</p>
-          <p class="note">No se permite el ingreso de alimentos ni bebidas.</p>
-          <a class="link-arrow" href="{{wa|Hola, quisiera información sobre la experiencia pasadía en Eco Hotel Panchápolis Rivera.}}" target="_blank" rel="noopener" data-cta="pasadia">Consultar pasadía</a>
-        </aside>
       </div>
     </section>
 
-    <!-- ═════════ F · GALERÍA ═════════ -->
-    <section class="gallery" id="galeria" aria-labelledby="gallery-title">
+    <!-- ═════════ G · GALERÍA ═════════ -->
+    <section class="gallery" id="galeria" aria-labelledby="gallery-title" data-atmos="white">
       <div class="wrap gallery__head">
         <p class="eyebrow"><span class="idx">06</span>Galería</p>
         <h2 class="display" id="gallery-title" data-lines>
           <span class="ln"><span>Mirar <em>despacio</em></span></span>
         </h2>
-        <a class="link-arrow gallery__ig" href="{{link:instagram}}" target="_blank" rel="noopener" >Ver más en Instagram<span class="sr-only"> (@panchapolis_rivera)</span></a>
+        <a class="link-arrow gallery__ig" href="{{link:instagram}}" target="_blank" rel="noopener">Ver más en Instagram<span class="sr-only"> (@panchapolis_rivera)</span></a>
       </div>
 
       <ul class="wrap gallery__grid" data-gallery>
@@ -530,92 +630,77 @@
       </ul>
       <div class="wrap gallery__cta">
         <p>¿Te imaginas aquí? Escríbenos y te ayudamos a elegir.</p>
-        <a class="btn btn--solid" href="{{wa}}" target="_blank" rel="noopener" data-cta="galeria">Consultar disponibilidad</a>
+        <a class="btn btn--solid" href="{{wa}}" target="_blank" rel="noopener" data-cta="galeria" data-magnetic>Consultar disponibilidad</a>
       </div>
     </section>
 
-    <!-- ═════════ G · UBICACIÓN ═════════ -->
-    <section class="location" id="ubicacion" aria-labelledby="location-title">
-      <svg class="location__lines" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-        <g fill="none" stroke="currentColor" stroke-width="1">
-          <path d="M-50 420 C 200 360 380 470 600 400 S 1000 330 1250 380" />
-          <path d="M-50 450 C 210 392 390 500 610 430 S 1010 362 1250 412" />
-          <path d="M-50 480 C 220 424 400 530 620 460 S 1020 394 1250 444" />
-          <path d="M-50 510 C 230 456 410 560 630 490 S 1030 426 1250 476" />
-          <path d="M-50 540 C 240 488 420 590 640 520 S 1040 458 1250 508" />
-        </g>
-      </svg>
-      <div class="wrap location__grid">
-        <p class="eyebrow"><span class="idx">07</span>Ubicación y cómo llegar</p>
-        <h2 class="display" id="location-title" data-lines>
-          <span class="ln"><span>Vereda Termopilas,</span></span>
-          <span class="ln"><span><em>Rivera, Huila</em></span></span>
-        </h2>
-        <div class="location__body">
-          <p class="lead" data-fade>Abre la ubicación oficial en Google Maps o escríbenos antes de salir y te compartimos las indicaciones para llegar.</p>
-          <div class="location__actions">
-            <a class="btn btn--solid" href="{{link:maps}}" target="_blank" rel="noopener" data-cta="maps">Cómo llegar</a>
-            <a class="btn btn--ghost" href="{{wa|Hola, quisiera indicaciones para llegar a Eco Hotel Panchápolis Rivera.}}" target="_blank" rel="noopener" data-cta="indicaciones">Pedir indicaciones</a>
-          </div>
-        </div>
-        <dl class="location__times">
-          <div><dt>Check-in</dt><dd>3:00 p.&nbsp;m.</dd></div>
-          <div><dt>Check-out</dt><dd>1:00 p.&nbsp;m.</dd></div>
-          <div><dt>Pasadía</dt><dd>10:00 a.&nbsp;m. – 5:00 p.&nbsp;m.</dd></div>
-        </dl>
-      </div>
-    </section>
-
-    <!-- ═════════ H · INVITACIÓN FINAL ═════════ -->
-    <section class="finale" id="reservar" aria-labelledby="finale-title">
+    <!-- ═════════ H · RESERVAS Y UBICACIÓN ═════════ -->
+    <section class="finale" id="ubicacion" aria-labelledby="finale-title" data-atmos="night">
+      <span id="reservar" class="anchor" aria-hidden="true"></span>
       <div class="finale__media" data-finale-media>
-        <pic src="fachada-dia-detalle" alt="Casa principal de Panchápolis bajo un cielo de nubes blancas" sizes="100vw" pos="50% 30%"></pic>
+        <pic src="villa-perissa" alt="Villa Perissa bajo el cielo azul, con buganvilias y flores rojas en primer plano" sizes="100vw" pos="50% 35%"></pic>
         <div class="finale__shade" aria-hidden="true"></div>
       </div>
       <div class="wrap finale__content">
+        <p class="eyebrow eyebrow--light"><span class="idx">07</span>Reservas y ubicación</p>
         <h2 class="display display--light finale__title" id="finale-title" data-lines>
           <span class="ln"><span>Tu próxima pausa</span></span>
           <span class="ln"><span>empieza con <em>un mensaje</em></span></span>
         </h2>
         <p class="finale__text">Cuéntanos fechas, número de personas y si viajas con mascota. Te respondemos con tarifas y disponibilidad.</p>
         <div class="finale__actions">
-          <a class="btn btn--solid btn--light" href="{{wa}}" target="_blank" rel="noopener" data-cta="final">Escribir por WhatsApp</a>
+          <a class="btn btn--solid btn--light btn--xl" href="{{wa}}" target="_blank" rel="noopener" data-cta="final" data-magnetic>Escribir por WhatsApp</a>
           <a class="link-arrow link-arrow--light" href="{{link:linktree}}" target="_blank" rel="noopener">Todos nuestros canales</a>
+        </div>
+
+        <div class="finale__info">
+          <div class="finale__col">
+            <h3 class="finale__h">Ubicación</h3>
+            <p class="finale__place">Vereda Termopilas,<br>Rivera, Huila, Colombia</p>
+            <p class="finale__links">
+              <a class="link-arrow link-arrow--light" href="{{link:maps}}" target="_blank" rel="noopener" data-cta="maps">Cómo llegar</a>
+              <a class="link-arrow link-arrow--light" href="{{wa|Hola, quisiera indicaciones para llegar a Eco Hotel Panchápolis Rivera.}}" target="_blank" rel="noopener" data-cta="indicaciones">Pedir indicaciones</a>
+            </p>
+          </div>
+          <div class="finale__col">
+            <h3 class="finale__h">Horarios</h3>
+            <dl class="finale__times">
+            <div><dt>Check-in</dt><dd>3:00 p.&nbsp;m.</dd></div>
+            <div><dt>Check-out</dt><dd>1:00 p.&nbsp;m.</dd></div>
+            <div><dt>Pasadía</dt><dd>10:00 a.&nbsp;m. – 5:00 p.&nbsp;m.</dd></div>
+            </dl>
+          </div>
+          <div class="finale__col">
+            <h3 class="finale__h">Síguenos</h3>
+            <ul class="finale__social">
+              <li><a href="{{link:instagram}}" target="_blank" rel="noopener">Instagram</a></li>
+              <li><a href="{{link:facebook}}" target="_blank" rel="noopener">Facebook</a></li>
+              <li><a href="{{link:tiktok}}" target="_blank" rel="noopener">TikTok</a></li>
+              <li><a href="{{link:linktree}}" target="_blank" rel="noopener">Linktree</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="wrap footer__grid">
-      <div class="footer__brand">
-        <p class="brand brand--footer"><span class="brand__name">Panchápolis</span><span class="brand__sub">Eco Hotel · Rivera</span></p>
-        <p>Eco hotel inspirado en Santorini.<br>Vereda Termopilas, Rivera, Huila, Colombia.</p>
-      </div>
+    <div class="wrap footer__row">
+      <p class="brand brand--footer"><span class="brand__name">Panchápolis</span><span class="brand__sub">Eco Hotel · Rivera</span></p>
       <nav class="footer__nav" aria-label="Secciones">
-        <h2 class="footer__h">Explorar</h2>
         <ul>
           <li><a href="#descubre">El hotel</a></li>
           <li><a href="#piscinas">Piscinas</a></li>
           <li><a href="#villas">Villas</a></li>
+          <li><a href="#recorrido">Recorrido</a></li>
           <li><a href="#galeria">Galería</a></li>
           <li><a href="#ubicacion">Ubicación</a></li>
         </ul>
       </nav>
-      <div class="footer__contact">
-        <h2 class="footer__h">Contacto</h2>
-        <ul>
-          <li><a href="{{wa}}" target="_blank" rel="noopener" data-cta="footer">WhatsApp {{wa_display}}</a></li>
-          <li><a href="{{link:instagram}}" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="{{link:facebook}}" target="_blank" rel="noopener">Facebook</a></li>
-          <li><a href="{{link:tiktok}}" target="_blank" rel="noopener">TikTok</a></li>
-          <li><a href="{{link:linktree}}" target="_blank" rel="noopener">Linktree</a></li>
-          <li><a href="{{link:maps}}" target="_blank" rel="noopener">Google Maps</a></li>
-        </ul>
-      </div>
+      <a class="footer__wa" href="{{wa}}" target="_blank" rel="noopener" data-cta="footer">WhatsApp {{wa_display}}</a>
     </div>
     <div class="wrap footer__base">
-      <p>© <span data-year>2026</span> Eco Hotel Panchápolis Rivera</p>
+      <p>© <span data-year>2026</span> Eco Hotel Panchápolis Rivera · Eco hotel inspirado en Santorini</p>
       <button type="button" class="motion-toggle" data-smooth-toggle aria-pressed="true" hidden>Desplazamiento suave: <span>activado</span></button>
     </div>
   </footer>
@@ -626,7 +711,7 @@
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.2a9.7 9.7 0 0 0-8.3 14.8L2.3 21.8l4.9-1.3A9.7 9.7 0 1 0 12 2.2Zm0 17.7a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 19.9Zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.5-.2Z"/></svg>
       <span>Consultar disponibilidad</span>
     </a>
-    <button type="button" class="dock__chat" data-chat-open aria-haspopup="dialog" aria-controls="asistente">
+    <button type="button" class="dock__chat" data-chat-open aria-haspopup="dialog" aria-controls="asistente" data-magnetic>
       <span class="dock__dot" aria-hidden="true"></span>
       <span>Asistente</span>
     </button>

@@ -72,10 +72,19 @@
 
 /* ── Menú móvil ── */
 .mobile-menu {
-  position: fixed; inset: 0; z-index: 75; display: flex; flex-direction: column; justify-content: space-between;
-  padding: calc(var(--header-h) + 2rem) var(--gutter) calc(2rem + env(safe-area-inset-bottom));
+  position: fixed; inset: 0; z-index: 75; display: flex; flex-direction: column; justify-content: flex-start;
+  padding: calc(var(--header-h) + 1.4rem) var(--gutter) calc(2rem + env(safe-area-inset-bottom));
   background: var(--ivory); color: var(--ink); overflow-y: auto;
 }
+.mobile-menu { display: flex; }
+.mobile-menu__media { order: 2; height: 20svh; min-height: 120px; margin: 1.6rem calc(var(--gutter) * -1) 0; overflow: hidden; }
+.mobile-menu__media .pic { height: 100%; }
+.mobile-menu nav { order: 1; }
+.mobile-menu__foot { order: 3; }
+.js:not(.reduced-motion) .mobile-menu:not([hidden]) .mobile-menu__list li { animation: fade-up 0.8s var(--ease) both; }
+.mobile-menu__list li:nth-child(2) { animation-delay: 0.05s !important; } .mobile-menu__list li:nth-child(3) { animation-delay: 0.1s !important; }
+.mobile-menu__list li:nth-child(4) { animation-delay: 0.15s !important; } .mobile-menu__list li:nth-child(5) { animation-delay: 0.2s !important; }
+.mobile-menu__list li:nth-child(6) { animation-delay: 0.25s !important; } .mobile-menu__list li:nth-child(7) { animation-delay: 0.3s !important; }
 .mobile-menu__list a { display: flex; align-items: baseline; gap: 1rem; padding: 0.5rem 0; font-family: var(--f-display); font-size: clamp(2.1rem, 9vw, 3rem); font-weight: 300; line-height: 1.1; text-decoration: none; border-bottom: 1px solid var(--line); }
 .mobile-menu__list small { font-family: var(--f-sans); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; color: var(--cobalt); }
 .mobile-menu__foot { display: grid; gap: 1.4rem; margin-top: 2rem; }
@@ -137,3 +146,15 @@
 
 .motion-toggle { min-height: 44px; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: inherit; opacity: 0.8; text-decoration: underline; text-underline-offset: 0.3em; }
 .motion-toggle:hover { opacity: 1; }
+
+/* ── Progreso de lectura (CSS scroll-driven; respaldo JS en main.js) ── */
+.progress { position: fixed; z-index: 85; inset: 0 0 auto; height: 2px; pointer-events: none; }
+.progress span { position: absolute; inset: 0; background: linear-gradient(90deg, var(--aegean), var(--turquoise)); transform-origin: left; transform: scaleX(var(--p, 0)); }
+@supports (animation-timeline: scroll()) {
+  .progress span { animation: progress-grow linear both; animation-timeline: scroll(root block); }
+}
+@keyframes progress-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.reduced-motion .progress { display: none; }
+
+/* Botones magnéticos (solo escritorio; los mueve motion.js con transform) */
+[data-magnetic] { will-change: transform; }

@@ -25,34 +25,55 @@ El flujo `.github/workflows/deploy.yml` compila y publica en cada push a `main`.
 |---|---|
 | **Vite + HTML/CSS/JS sin framework** | Es una sola página de contenido. React no aporta nada aquí y añadiría unos 45 KB de runtime e hidratación. El HTML llega completo (mejor LCP y SEO) y el JS inicial pesa unos 3 KB comprimidos. |
 | **CSS propio con tokens** (sin Tailwind) | La dirección de arte editorial necesita control fino de tipografía y composición. El CSS completo pesa unos 8 KB comprimidos y va en línea dentro del HTML. |
-| **GSAP + ScrollTrigger + CustomEase** | Revelados, paralaje y la escena fijada de piscinas. Se descargan con la primera intención de desplazarse o interactuar, nunca en el primer render. |
+| **GSAP + ScrollTrigger + CustomEase** | Revelados, paralaje, atmósfera, escena fijada de piscinas y botones magnéticos. Se descargan con la primera intención de desplazarse o interactuar, nunca en el primer render. |
 | **Lenis** | Scroll suave solo en escritorio con rueda o trackpad. Se puede desactivar en el pie de página y se recuerda la preferencia. En móvil se usa el scroll nativo. |
 | **sharp** | Genera AVIF, WebP y JPEG en 480, 640, 800, 1200 y hasta 1600 px, con dimensiones explícitas. |
+
+## Concepto: MEDITERRANEAN TROPICAL ESCAPE
+
+Santorini y la naturaleza del Huila. Paleta: azul Egeo `#104D89`, turquesa `#27BCC7`, marfil `#F8F6F0`, verde tropical `#274D3B` y arena dorada `#D5A96D`. Tipografía Cormorant Garamond para titulares y Manrope para la interfaz.
+
+| Escena | Qué hace |
+|---|---|
+| Hero | Foto nocturna a pantalla completa, apertura por máscara, titular palabra a palabra, Ken Burns, paralaje por scroll e inclinación con el cursor en escritorio. |
+| 01 Descubre | Composición asimétrica con tres fotos a distintas velocidades de paralaje, revelado por máscara y el contraste mediterráneo/tropical. |
+| Puente | La casa principal se abre de un recuadro a pantalla completa (scroll-driven animations en CSS; GSAP como respaldo). |
+| 02 Piscinas | Tres ambientes con pestañas accesibles. Transición de agua en WebGL propio (frente que sube, oleaje y onda bajo el cursor). En escritorio la escena se fija y el scroll la recorre; en móvil se usan pestañas y gesto, sin bloquear el scroll. |
+| 03 Villas | Explorador: en escritorio, escenario fijo con transición por máscara e índice; en móvil, carrusel táctil con scroll-snap, chips y flechas. Cada villa tiene su consulta por WhatsApp. |
+| 04 Recorrido | Paseo 2.5D con seis fotos reales en profundidad (CSS 3D): flechas, teclado, arrastre y números. Se marca como ilustrativo. |
+| 05 Experiencias | Pestañas con iconos de trazo animado: spa, restaurante, fuego, pasadía, mascotas y zonas sociales. |
+| 06 Galería | Retícula editorial, revelado, zoom suave y visor con transiciones, teclado y gesto. |
+| 07 Reservas y ubicación | Cierre cinematográfico con CTA dominante, ubicación, horarios y redes. |
+
+Lenguaje transversal: una sola curva de easing, atmósfera de color por escena, barra de progreso (CSS scroll timeline con respaldo JS), botones magnéticos y cursor en escritorio.
 
 ## Estructura
 
 ```
 index.html                 Página (HTML semántico, <pic> se expande a <picture> al compilar)
 404.html                   Página de error útil
-vite.config.js             Plugins: <pic>, enlaces {{wa}}/{{link:…}} y CSS en línea
+vite.config.js             Plugins: <pic>, enlaces {{wa}}/{{link:…}}, ruta base y CSS en línea
 src/
   data/site.js             ★ Configuración: WhatsApp, enlaces, video del hero, asistente
-  main.js                  Header, menú móvil, villas, barra fija, carga diferida
-  motion.js                Sistema de movimiento (GSAP/ScrollTrigger/Lenis, cursor)
-  gallery.js               Lightbox accesible (<dialog>, teclado, gesto)
+  main.js                  Header, menú móvil, barra fija, progreso, carga diferida de escenas
+  motion.js                Sistema de movimiento (GSAP/ScrollTrigger/Lenis, atmósfera, magnéticos, cursor)
+  modules/villas.js        Explorador de villas (sin GSAP)
+  modules/pools.js         Piscinas: pestañas, gesto y carga del shader
+  modules/pools-gl.js      Transición de agua en WebGL puro (carga diferida)
+  modules/journey.js       Recorrido 2.5D en CSS 3D (carga diferida)
+  modules/experiences.js   Pestañas de experiencias
+  gallery.js               Lightbox accesible con transiciones
   chat/assistant.js        Asistente virtual por reglas + "Planifica tu consulta"
-  styles/                  tokens, base, componentes, secciones, asistente, 404
+  styles/                  tokens, base, componentes, escenas, asistente, 404
 public/
   data/conocimiento.json   ★ Base de conocimiento del asistente (editable sin recompilar)
-  img/                     Imágenes optimizadas (generadas)
-  media/hero/              Aquí va el video aéreo cuando exista
-  fonts/                   Cormorant Garamond y Manrope (subconjunto latino, propias)
+  img/ fonts/ media/hero/
 assets/originales/         Fotos fuente del propietario
 scripts/                   optimize-images.mjs, encode-hero-video.sh
 docs/                      ASISTENTE_IA.md + ejemplo de función serverless
-PENDIENTES_DE_VALIDACION.md
-ASSETS_NECESARIOS.md
 ```
+
+**Dependencias:** no se añadió ninguna. Three.js / React Three Fiber se descartaron: el agua es un shader propio de ~2,5 KB comprimido y el recorrido usa CSS 3D, accesible y sin WebGL.
 
 ## Cambios frecuentes
 
